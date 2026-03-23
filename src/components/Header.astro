@@ -1,0 +1,96 @@
+---
+const navLinks = [
+  { label: "Ateliers", href: "/ateliers-respiration-coherence-cardiaque/", children: [
+    { label: "Respiration & Cohérence", href: "/ateliers-respiration-coherence-cardiaque/" },
+    { label: "Ateliers Thématiques", href: "/ateliers-thematiques/" },
+  ]},
+  { label: "Soins", href: "/soins-energetiques/", children: [
+    { label: "Soins Énergétiques", href: "/soins-energetiques/" },
+    { label: "Réflexologie Plantaire", href: "/reflexologie-plantaire/" },
+  ]},
+  { label: "Accompagnement", href: "/accompagnement-personnel/" },
+  { label: "Tarifs", href: "/tarifs/" },
+  { label: "À Propos", href: "/a-propos/" },
+  { label: "Contact", href: "/contact/" },
+];
+---
+
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(130,59,24,0.05)]">
+  <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+    <a class="font-[Newsreader] text-2xl font-light tracking-[0.2em] text-primary" href="/">
+      AU POUR QUOI PAS
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex items-center gap-10">
+      {navLinks.map((link) => (
+        <div class="relative group">
+          <a
+            class="font-[Newsreader] italic tracking-wide text-lg text-on-surface/70 hover:text-primary transition-colors"
+            href={link.href}
+          >
+            {link.label}
+          </a>
+          {link.children && (
+            <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <div class="bg-surface-container-lowest rounded-2xl shadow-lg p-4 min-w-[240px] border border-outline-variant/10">
+                {link.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class="block px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors text-sm"
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+      <a
+        href="/contact/"
+        class="bg-primary text-on-primary px-8 py-2.5 rounded-full font-[Inter] text-sm tracking-widest uppercase hover:opacity-90 transition-all active:scale-95 duration-300"
+      >
+        Réserver
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="mobile-toggle" class="lg:hidden text-primary" aria-label="Menu">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-surface-container-lowest border-t border-outline-variant/10 px-8 pb-8">
+    {navLinks.map((link) => (
+      <div>
+        <a href={link.href} class="block py-3 font-[Newsreader] italic text-lg text-on-surface hover:text-primary transition-colors">
+          {link.label}
+        </a>
+        {link.children && (
+          <div class="pl-4">
+            {link.children.map((child) => (
+              <a href={child.href} class="block py-2 text-on-surface-variant text-sm hover:text-primary transition-colors">
+                {child.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+    <a href="/contact/" class="mt-4 block text-center bg-primary text-on-primary px-8 py-3 rounded-full text-sm tracking-widest uppercase">
+      Réserver
+    </a>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const icon = toggle?.querySelector('.material-symbols-outlined');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    if (icon) icon.textContent = menu?.classList.contains('hidden') ? 'menu' : 'close';
+  });
+</script>

@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import PourQuoiPas from '../components/PourQuoiPas.astro';
+import { site } from '../data/site';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndWellnessBusiness",
+  "name": site.name,
+  "description": site.description,
+  "url": site.url,
+  "email": site.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": site.address.street,
+    "addressLocality": site.address.city,
+    "postalCode": site.address.postalCode,
+    "addressRegion": site.address.region,
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": site.geo.lat,
+    "longitude": site.geo.lng
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Mortagne-au-Perche" },
+    { "@type": "AdministrativeArea", "name": "Orne" },
+    { "@type": "AdministrativeArea", "name": "Perche" }
+  ],
+  "priceRange": "30€ - 70€",
+  "inLanguage": "fr"
+};
+---
+
+<BaseLayout
+  title="Cohérence Cardiaque & Respiration à Mortagne-au-Perche | Au Pour Quoi Pas"
+  description="Régulez votre stress grâce à la respiration et la cohérence cardiaque. Ateliers, soins énergétiques et réflexologie plantaire à Mortagne-au-Perche. Dès 30€."
+  schema={schema}
+>
+
+  <!-- 1. HERO -->
+  <header class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+    <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 z-10">
+        <span class="text-secondary font-[Inter] text-sm tracking-[0.3em] uppercase mb-6 block">Le sanctuaire du souffle</span>
+        <h1 class="serif-display text-6xl md:text-8xl text-on-surface leading-tight mb-8">
+          Régulez votre <span class="italic text-primary">stress</span> grâce à la respiration
+        </h1>
+        <p class="font-[Newsreader] italic text-2xl text-on-surface-variant mb-4">Ateliers de cohérence cardiaque à Mortagne-au-Perche</p>
+        <p class="max-w-xl text-lg text-on-surface-variant leading-relaxed mb-10">
+          Apprenez à calmer votre mental, retrouver un sommeil profond et harmoniser votre rythme cardiaque au cœur du Perche. Une parenthèse de sérénité pour soi.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6">
+          <a href="/contact/" class="bg-primary text-on-primary px-10 py-4 rounded-full text-sm tracking-widest uppercase hover:opacity-90 transition-all text-center">
+            Réserver un atelier
+          </a>
+          <a href="/ateliers-respiration-coherence-cardiaque/" class="border border-outline text-primary px-10 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-surface-container-low transition-all text-center">
+            Découvrir les séances
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative">
+        <div class="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl rotate-2 bg-surface-container-high">
+          <img
+            alt="Personne pratiquant la respiration dans un espace lumineux et apaisant"
+            class="w-full h-full object-cover"
+            src="/images/hero/hero-respiration.webp"
+            width="600"
+            height="750"
+          />
+        </div>
+        <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-secondary-container rounded-full flex items-center justify-center p-8 text-center -rotate-12">
+          <span class="serif-display text-on-secondary-container italic leading-tight">La paix commence par un souffle</span>
+        </div>
+      </div>
+    </div>
+    <div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-surface-container-low opacity-50 rounded-l-[10rem]"></div>
+  </header>
+
+  <!-- 2. PROBLEM SECTION -->
+  <section class="py-32 bg-surface">
+    <div class="container mx-auto px-6 md:px-12">
+      <h2 class="serif-display text-4xl md:text-5xl text-center mb-20">Vous ressentez :</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+        {[
+          { icon: "spa", label: "Stress ou anxiété" },
+          { icon: "psychology", label: "Un mental qui ne s'arrête jamais" },
+          { icon: "bedtime", label: "Troubles du sommeil" },
+          { icon: "battery_alert", label: "Fatigue constante" },
+          { icon: "layers_clear", label: "Surcharge mentale" },
+        ].map((item) => (
+          <div class="group bg-surface-container-low p-10 rounded-3xl flex flex-col items-center text-center transition-all hover:bg-surface-container-high">
+            <span class="material-symbols-outlined text-4xl text-primary/40 mb-6 group-hover:text-primary transition-colors">{item.icon}</span>
+            <p class="text-lg font-medium text-on-surface-variant leading-snug">{item.label}</p>
+          </div>
+        ))}
+      </div>
+      <p class="serif-display text-2xl italic text-center text-primary mt-16">Vous n'êtes pas seul(e).</p>
+    </div>
+  </section>
+
+  <!-- 3. SOLUTION SECTION -->
+  <section class="py-32 bg-surface-container-low">
+    <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div class="order-2 lg:order-1">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="rounded-3xl w-full aspect-square bg-surface-container-high"></div>
+            <div class="rounded-3xl w-full aspect-video bg-surface-container-high"></div>
+          </div>
+          <div class="pt-12 space-y-4">
+            <div class="rounded-3xl w-full aspect-square bg-surface-container-high"></div>
+          </div>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2">
+        <h2 class="serif-display text-4xl md:text-5xl mb-12 leading-tight">
+          Le souffle : un outil puissant pour réguler votre système nerveux
+        </h2>
+        <ul class="space-y-8">
+          {[
+            { title: "Calmer rapidement votre stress", desc: "Activez votre système parasympathique en quelques minutes." },
+            { title: "Mieux gérer vos émotions", desc: "Développez une résilience face aux tempêtes du quotidien." },
+            { title: "Améliorer votre sommeil", desc: "Préparez votre corps au repos profond pour des nuits réparatrices." },
+            { title: "Retrouver de la clarté mentale", desc: "Dispersez le brouillard cérébral pour une meilleure concentration." },
+            { title: "Augmenter votre énergie", desc: "Optimisez l'oxygénation de vos cellules pour une vitalité durable." },
+          ].map((item) => (
+            <li class="flex items-start gap-6">
+              <span class="flex-shrink-0 w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center text-secondary">
+                <span class="material-symbols-outlined text-xl">check</span>
+              </span>
+              <div>
+                <h3 class="font-semibold text-lg text-on-surface">{item.title}</h3>
+                <p class="text-on-surface-variant">{item.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICES SECTION -->
+  <section class="py-32 bg-surface" id="ateliers">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-20 gap-8">
+        <div class="max-w-2xl">
+          <h2 class="serif-display text-5xl md:text-6xl mb-6">Nos Ateliers</h2>
+          <p class="text-xl text-on-surface-variant italic font-[Newsreader]">Un cadre intime pour une pratique guidée en toute bienveillance.</p>
+        </div>
+        <div class="bg-surface-container p-6 rounded-2xl flex items-center gap-4">
+          <span class="material-symbols-outlined text-primary text-3xl">groups</span>
+          <p class="font-medium text-sm tracking-wide uppercase">6 à 8 personnes maximum</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <a href="/ateliers-respiration-coherence-cardiaque/" class="bg-surface-container-lowest p-8 rounded-[3rem] shadow-sm border border-outline-variant/10 hover:shadow-xl transition-all duration-500 block">
+          <div class="h-64 rounded-[2rem] overflow-hidden mb-8 bg-surface-container-high">
+            <img alt="Atelier de cohérence cardiaque en groupe" src="/images/services/ateliers-respiration.webp" class="w-full h-full object-cover" width="400" height="256" loading="lazy" />
+          </div>
+          <h3 class="serif-display text-3xl mb-4">Respiration & Cohérence</h3>
+          <p class="text-on-surface-variant mb-8 leading-relaxed">Initiez-vous aux bases de la cohérence cardiaque et intégrez des routines simples à votre quotidien.</p>
+          <span class="text-primary font-semibold flex items-center gap-2">
+            En savoir plus <span class="material-symbols-outlined">arrow_forward</span>
+          </span>
+        </a>
+        <a href="/ateliers-thematiques/" class="bg-surface-container-lowest p-8 rounded-[3rem] shadow-sm border border-outline-variant/10 hover:shadow-xl transition-all duration-500 mt-8 md:mt-16 block">
+          <div class="h-64 rounded-[2rem] overflow-hidden mb-8 bg-surface-container-high">
+            <img alt="Atelier thématique bien-être en groupe" src="/images/services/ateliers-thematiques.webp" class="w-full h-full object-cover" width="400" height="256" loading="lazy" />
+          </div>
+          <h3 class="serif-display text-3xl mb-4">Ateliers Thématiques</h3>
+          <p class="text-on-surface-variant mb-8 leading-relaxed">Gestion du stress, émotions, clarté mentale : explorez des besoins spécifiques lors d'ateliers trimestriels.</p>
+          <span class="text-primary font-semibold flex items-center gap-2">
+            En savoir plus <span class="material-symbols-outlined">arrow_forward</span>
+          </span>
+        </a>
+        <a href="/soins-energetiques/" class="bg-surface-container-lowest p-8 rounded-[3rem] shadow-sm border border-outline-variant/10 hover:shadow-xl transition-all duration-500 block">
+          <div class="h-64 rounded-[2rem] overflow-hidden mb-8 bg-surface-container-high">
+            <img alt="Séance individuelle de soins énergétiques" src="/images/services/seances-individuelles.webp" class="w-full h-full object-cover" width="400" height="256" loading="lazy" />
+          </div>
+          <h3 class="serif-display text-3xl mb-4">Séances Individuelles</h3>
+          <p class="text-on-surface-variant mb-8 leading-relaxed">Soins énergétiques, réflexologie plantaire et accompagnement personnalisé selon votre propre rythme.</p>
+          <span class="text-primary font-semibold flex items-center gap-2">
+            En savoir plus <span class="material-symbols-outlined">arrow_forward</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PRICING SECTION -->
+  <section class="py-32 bg-surface-container-low" id="tarifs">
+    <div class="container mx-auto px-6 md:px-12 max-w-5xl">
+      <h2 class="serif-display text-4xl md:text-5xl text-center mb-20">Tarifs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-surface p-10 rounded-[3rem] border border-outline-variant/20">
+          <div class="flex justify-between items-start mb-10">
+            <div>
+              <h3 class="text-sm uppercase tracking-widest text-secondary mb-2">À la séance</h3>
+              <p class="serif-display text-3xl">Atelier Découverte</p>
+            </div>
+            <p class="serif-display text-4xl text-primary">30€</p>
+          </div>
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-secondary">check</span> 1h15 de pratique guidée</li>
+            <li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-secondary">check</span> Évaluation respiratoire incluse</li>
+          </ul>
+          <a href="/contact/" class="block w-full py-4 border border-primary text-primary rounded-full uppercase text-xs tracking-widest font-semibold hover:bg-primary hover:text-white transition-all text-center">S'inscrire</a>
+        </div>
+        <div class="bg-primary p-10 rounded-[3rem] text-white">
+          <div class="flex justify-between items-start mb-10">
+            <div>
+              <h3 class="text-sm uppercase tracking-widest text-on-primary-container mb-2">Forfait complet</h3>
+              <p class="serif-display text-3xl">10 Séances</p>
+            </div>
+            <p class="serif-display text-4xl">140€</p>
+          </div>
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center gap-3 text-on-primary-container"><span class="material-symbols-outlined">check</span> Accès à tous les ateliers respiration</li>
+            <li class="flex items-center gap-3 text-on-primary-container"><span class="material-symbols-outlined">check</span> Suivi personnalisé</li>
+            <li class="flex items-center gap-3 text-on-primary-container"><span class="material-symbols-outlined">check</span> Évaluation de cohérence offerte</li>
+          </ul>
+          <a href="/contact/" class="block w-full py-4 bg-white text-primary rounded-full uppercase text-xs tracking-widest font-semibold hover:bg-on-primary-container transition-all text-center">S'inscrire</a>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a class="text-primary border-b border-primary/20 pb-1 font-medium hover:border-primary transition-all" href="/tarifs/">Voir tous les tarifs détaillés</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ABOUT SECTION -->
+  <section class="py-32 bg-surface" id="propos">
+    <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div class="relative">
+        <div class="w-full aspect-[4/5] bg-surface-container-high rounded-[5rem] shadow-lg overflow-hidden">
+          <img alt="Stéphanie, fondatrice d'Au Pour Quoi Pas" src="/images/stephanie/portrait.webp" class="w-full h-full object-cover" width="500" height="625" loading="lazy" />
+        </div>
+        <div class="absolute -bottom-10 -right-10 bg-secondary w-64 h-64 rounded-full -z-10 opacity-20 blur-3xl"></div>
+      </div>
+      <div>
+        <span class="text-secondary text-sm tracking-[0.3em] uppercase mb-6 block">Fondatrice</span>
+        <h2 class="serif-display text-5xl md:text-6xl mb-10">Qui suis-je ?</h2>
+        <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed mb-12">
+          <p>{site.owner.shortBio}</p>
+          <p class="italic serif-display text-2xl text-primary">"Le souffle est le pont entre le corps et l'esprit."</p>
+        </div>
+        <a href="/a-propos/" class="bg-surface-container-low text-primary px-10 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-surface-container-high transition-all inline-block">
+          En savoir plus
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. POUR QUOI PAS -->
+  <PourQuoiPas />
+
+  <!-- 8. MAP / LOCAL -->
+  <section class="py-32 bg-surface" id="lieu">
+    <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-4">
+        <h2 class="serif-display text-5xl mb-12">Nous trouver</h2>
+        <div class="space-y-10">
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+            <div>
+              <p class="font-bold text-lg mb-1">L'Atelier</p>
+              <p class="text-on-surface-variant text-lg">{site.address.street}<br />{site.address.postalCode} {site.address.city}</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-primary text-3xl">schedule</span>
+            <div>
+              <p class="font-bold text-lg mb-1">Nos Rendez-vous</p>
+              <ul class="text-on-surface-variant space-y-1">
+                {site.schedule.map((s) => (
+                  <li><span class="font-medium text-secondary">{s.day} :</span> {s.time}{s.note ? ` (${s.note})` : ''}</li>
+                ))}
+              </ul>
+              <p class="text-secondary text-sm italic mt-2">Uniquement sur réservation</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-primary text-3xl">mail</span>
+            <div>
+              <p class="font-bold text-lg mb-1">Contact</p>
+              <p class="text-on-surface-variant text-lg"><a href={`mailto:${site.email}`} class="hover:text-primary transition-colors">{site.email}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-8 h-[500px] rounded-[4rem] overflow-hidden shadow-sm border border-outline-variant/20">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600!2d0.5478!3d48.5206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s44+rue+Montcacune+Mortagne-au-Perche!5e0!3m2!1sfr!2sfr!4v1"
+          width="100%"
+          height="100%"
+          style="border:0"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Carte — Au Pour Quoi Pas, 44 rue Montcacune, Mortagne-au-Perche"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FINAL CTA -->
+  <section class="py-24 px-6 md:px-12 bg-primary mx-6 md:mx-12 mb-24 rounded-[4rem] text-center text-white overflow-hidden relative">
+    <div class="absolute -top-24 -left-24 w-64 h-64 bg-primary-container/30 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-primary-container/30 rounded-full blur-3xl"></div>
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <h2 class="serif-display text-4xl md:text-6xl mb-8 leading-tight">Prêt(e) à retrouver calme et énergie ?</h2>
+      <p class="text-xl text-on-primary-container mb-12 italic font-[Newsreader]">Rejoignez-nous pour une séance d'initiation et commencez votre voyage intérieur.</p>
+      <div class="flex flex-col items-center gap-8">
+        <a href="/contact/" class="bg-white text-primary px-12 py-5 rounded-full text-sm tracking-[0.2em] uppercase hover:bg-on-primary-container transition-all shadow-xl">
+          Réserver votre première séance
+        </a>
+        <a class="text-on-primary-container border-b border-on-primary-container/30 pb-1 hover:text-white transition-colors" href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

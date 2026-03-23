@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary — Terracotta Brown */
+  --color-primary: #823b18;
+  --color-primary-container: #a0522d;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ffe1d6;
+  --color-primary-fixed: #ffdbcd;
+  --color-primary-fixed-dim: #ffb596;
+  --color-on-primary-fixed: #360f00;
+  --color-on-primary-fixed-variant: #76320f;
+  --color-inverse-primary: #ffb596;
+
+  /* Secondary — Sage Green */
+  --color-secondary: #526347;
+  --color-secondary-container: #d2e6c2;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #56684b;
+  --color-secondary-fixed: #d5e9c5;
+  --color-secondary-fixed-dim: #b9cdaa;
+  --color-on-secondary-fixed: #101f09;
+  --color-on-secondary-fixed-variant: #3b4b31;
+
+  /* Tertiary — Warm Gray */
+  --color-tertiary: #514f4c;
+  --color-tertiary-container: #6a6763;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #ebe6e1;
+  --color-tertiary-fixed: #e6e2dd;
+  --color-tertiary-fixed-dim: #cac6c1;
+  --color-on-tertiary-fixed: #1d1b19;
+  --color-on-tertiary-fixed-variant: #484643;
+
+  /* Surface — Warm Off-White System */
+  --color-surface: #fcf9f8;
+  --color-surface-dim: #dcd9d9;
+  --color-surface-bright: #fcf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container: #f0eded;
+  --color-surface-container-high: #eae7e7;
+  --color-surface-container-highest: #e4e2e1;
+  --color-surface-variant: #e4e2e1;
+  --color-surface-tint: #944925;
+
+  /* On Surface */
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #54433c;
+  --color-on-background: #1b1c1c;
+  --color-background: #fcf9f8;
+
+  /* Outline */
+  --color-outline: #87736b;
+  --color-outline-variant: #dac1b8;
+
+  /* Inverse */
+  --color-inverse-surface: #303030;
+  --color-inverse-on-surface: #f3f0f0;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Typography */
+  --font-headline: "Newsreader", serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+/* Serif display utility */
+.serif-display {
+  font-family: var(--font-headline);
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary-fixed);
+  color: var(--color-on-primary-fixed);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

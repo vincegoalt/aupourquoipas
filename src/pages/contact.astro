@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import { services } from '../data/services';
+import { site } from '../data/site';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "name": "Contact — Au Pour Quoi Pas",
+      "url": `${site.url}/contact/`,
+      "mainEntity": {
+        "@type": "HealthAndWellnessBusiness",
+        "name": site.name,
+        "email": site.email,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": site.address.street,
+          "addressLocality": site.address.city,
+          "postalCode": site.address.postalCode,
+          "addressCountry": "FR"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": site.url },
+        { "@type": "ListItem", "position": 2, "name": "Contact" }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Contact | Au Pour Quoi Pas — Mortagne-au-Perche"
+  description="Contactez Au Pour Quoi Pas pour réserver un atelier ou poser vos questions. 44 rue Montcacune, Mortagne-au-Perche. aupourquoipas61@gmail.com"
+  schema={schema}
+>
+
+  <!-- Breadcrumb -->
+  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
+    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
+      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
+      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
+      <li><span class="text-primary/80">Contact</span></li>
+    </ol>
+  </nav>
+
+  <!-- Hero -->
+  <header class="max-w-screen-xl mx-auto px-6 md:px-12 mb-20 py-12">
+    <h1 class="serif-display text-6xl md:text-8xl font-light text-primary leading-tight mb-6">Parlons de votre sérénité.</h1>
+    <p class="text-on-surface-variant/80 text-lg max-w-xl tracking-wide leading-relaxed">
+      Un moment pour soi, une respiration partagée. Contactez-nous pour réserver votre atelier ou poser vos questions.
+    </p>
+  </header>
+
+  <!-- Content Grid -->
+  <div class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+      <!-- Form -->
+      <section class="bg-surface-container-low rounded-[2rem] p-8 md:p-12">
+        <form class="space-y-8" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex flex-col gap-2">
+              <label for="nom" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Nom</label>
+              <input
+                id="nom"
+                name="nom"
+                type="text"
+                required
+                placeholder="Votre nom complet"
+                class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="email" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="exemple@mail.com"
+                class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="telephone" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Téléphone</label>
+            <input
+              id="telephone"
+              name="telephone"
+              type="tel"
+              placeholder="+33 6 00 00 00 00"
+              class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="service" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Quel atelier vous intéresse ?</label>
+            <select
+              id="service"
+              name="service"
+              class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors appearance-none"
+            >
+              <option value="">Sélectionnez un service</option>
+              {services.map((s) => (
+                <option value={s.slug}>{s.name}</option>
+              ))}
+              <option value="location-salle">Location de salle</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder="Comment pouvons-nous vous aider ?"
+              class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-primary text-on-primary py-5 rounded-full serif-display italic text-2xl hover:opacity-90 transition-all shadow-lg shadow-primary/10"
+          >
+            Envoyer
+          </button>
+        </form>
+      </section>
+
+      <!-- Contact Info + Map -->
+      <section class="space-y-16 lg:sticky lg:top-40">
+        <div class="space-y-10">
+          <div class="flex items-start gap-6">
+            <div class="bg-secondary-container p-4 rounded-[1rem] text-secondary">
+              <span class="material-symbols-outlined text-3xl">location_on</span>
+            </div>
+            <div>
+              <h3 class="serif-display text-2xl italic text-on-surface mb-2">L'Atelier</h3>
+              <p class="text-on-surface-variant leading-relaxed">
+                {site.address.street}<br />
+                {site.address.postalCode} {site.address.city}<br />
+                France
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-6">
+            <div class="bg-secondary-container p-4 rounded-[1rem] text-secondary">
+              <span class="material-symbols-outlined text-3xl">schedule</span>
+            </div>
+            <div>
+              <h3 class="serif-display text-2xl italic text-on-surface mb-2">Nos Rendez-vous</h3>
+              <ul class="text-on-surface-variant space-y-1">
+                {site.schedule.map((s) => (
+                  <li><span class="font-medium text-secondary">{s.day} :</span> {s.time}{s.note ? ` (${s.note})` : ''}</li>
+                ))}
+              </ul>
+              <p class="text-secondary text-sm italic mt-2">Uniquement sur réservation</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-6">
+            <div class="bg-secondary-container p-4 rounded-[1rem] text-secondary">
+              <span class="material-symbols-outlined text-3xl">mail</span>
+            </div>
+            <div>
+              <h3 class="serif-display text-2xl italic text-on-surface mb-2">Contact Direct</h3>
+              <a href={`mailto:${site.email}`} class="text-on-surface-variant hover:text-primary transition-colors text-lg">{site.email}</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="relative group">
+          <div class="absolute inset-0 bg-primary/5 rounded-[2.5rem] transform translate-x-4 translate-y-4 -z-10 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+          <div class="w-full h-80 rounded-[2rem] overflow-hidden shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600!2d0.5478!3d48.5206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s44+rue+Montcacune+Mortagne-au-Perche!5e0!3m2!1sfr!2sfr!4v1"
+              width="100%"
+              height="100%"
+              style="border:0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Carte — Au Pour Quoi Pas, 44 rue Montcacune, Mortagne-au-Perche"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Group Info Banner -->
+    <div class="mt-32 p-12 bg-secondary-container rounded-[3rem] text-center border border-secondary/10">
+      <span class="material-symbols-outlined text-5xl text-secondary mb-6 block">group</span>
+      <p class="serif-display text-3xl md:text-4xl text-on-secondary-container italic font-light max-w-2xl mx-auto leading-snug">
+        Groupes limités à 8 personnes — réservez votre place pour une expérience privilégiée.
+      </p>
+      <div class="mt-8 flex justify-center gap-4 flex-wrap">
+        <span class="inline-block px-6 py-2 rounded-full border border-on-secondary-container/20 text-on-secondary-container text-sm uppercase tracking-widest font-[Inter]">Intimité</span>
+        <span class="inline-block px-6 py-2 rounded-full border border-on-secondary-container/20 text-on-secondary-container text-sm uppercase tracking-widest font-[Inter]">Écoute</span>
+        <span class="inline-block px-6 py-2 rounded-full border border-on-secondary-container/20 text-on-secondary-container text-sm uppercase tracking-widest font-[Inter]">Sérénité</span>
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>
