@@ -21,7 +21,7 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Accueil", "item": site.url },
-        { "@type": "ListItem", "position": 2, "name": "A Propos" }
+        { "@type": "ListItem", "position": 2, "name": "À Propos" }
       ]
     }
   ]
@@ -29,139 +29,167 @@ const schema = {
 ---
 
 <BaseLayout
-  title="A Propos de Stephanie | Au Pour Quoi Pas"
-  description="Podologue posturologue et energeticienne depuis plus de 20 ans, Stephanie vous accompagne vers le bien-etre a Mortagne-au-Perche."
+  title="À Propos de Stéphanie | Au Pour Quoi Pas"
+  description="Podologue posturologue et énergéticienne depuis plus de 20 ans, Stéphanie vous accompagne vers le bien-être à Mortagne-au-Perche."
   schema={schema}
 >
 
-  <div class="pt-32 lg:pt-40">
+  <!-- Breadcrumb -->
+  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
+    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
+      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
+      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
+      <li><span class="text-primary/80">À Propos</span></li>
+    </ol>
+  </nav>
 
-    <!-- Breadcrumb -->
-    <nav class="max-w-[1200px] mx-auto px-6 lg:px-24 mb-12">
-      <ol class="flex gap-3 items-center text-[10px] font-sans tracking-[0.2em] uppercase text-charcoal/30">
-        <li><a class="hover:text-terracotta transition-colors" href="/">Accueil</a></li>
-        <li>&mdash;</li>
-        <li><span class="text-charcoal/50">A Propos</span></li>
-      </ol>
-    </nav>
+  <!-- Hero -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-20">
+    <div class="space-y-8">
+      <span class="text-secondary font-[Inter] text-sm tracking-[0.3em] uppercase block">Fondatrice</span>
+      <h1 class="serif-display text-6xl md:text-8xl leading-tight text-primary font-light">Stéphanie</h1>
+      <p class="serif-display text-2xl italic text-on-surface-variant">{site.owner.title}</p>
+      <p class="text-xl text-on-surface-variant font-light leading-relaxed max-w-xl">
+        {site.owner.shortBio}
+      </p>
+    </div>
+    <div class="relative">
+      <div class="w-full aspect-[4/5] bg-surface-container-high rounded-[5rem] shadow-lg overflow-hidden">
+        <img
+          alt="Stéphanie, fondatrice d'Au Pour Quoi Pas, dans son atelier à Mortagne-au-Perche"
+          src="/images/stephanie/portrait.webp"
+          class="w-full h-full object-cover"
+          width="600"
+          height="750"
+          loading="eager"
+        />
+      </div>
+      <div class="absolute -bottom-10 -right-10 bg-secondary w-64 h-64 rounded-full -z-10 opacity-20 blur-3xl"></div>
+    </div>
+  </section>
 
-    <!-- Hero -->
-    <section class="max-w-[1200px] mx-auto px-6 lg:px-24 pb-32 lg:pb-48 border-b border-charcoal/5">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <div class="lg:col-span-7 reveal">
-          <span class="text-sage font-sans text-[10px] tracking-[0.2em] uppercase mb-6 block">Fondatrice</span>
-          <h1 class="font-editorial text-[clamp(3rem,5vw,6rem)] text-charcoal leading-[1.05] mb-4 font-light">Stephanie</h1>
-          <p class="font-editorial text-xl text-charcoal/50 mb-8">{site.owner.title}</p>
-          <p class="text-charcoal/60 text-lg leading-relaxed max-w-xl font-light">
-            {site.owner.shortBio}
+  <!-- Full Story -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="serif-display text-5xl mb-16 text-center">Mon Parcours</h2>
+
+      <div class="space-y-16">
+        <!-- Chapter 1: Origins -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-6 mb-8">
+            <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl text-primary">nature_people</span>
+            </div>
+            <h3 class="serif-display text-3xl">Enracinée dans le Perche</h3>
+          </div>
+          <p class="text-lg text-on-surface-variant leading-relaxed">
+            Originaire du Perche, j'ai toujours vécu proche de la nature. Toute mon enfance jusqu'à l'âge de 22 ans, j'ai grandi dans l'univers du sport — la course à pied de manière intense — avec une première découverte du corps et ses blessures.
           </p>
         </div>
-        <div class="lg:col-span-5 reveal">
-          <img
-            alt="Stephanie, fondatrice d'Au Pour Quoi Pas"
-            src="/images/stephanie/portrait.webp"
-            class="w-full aspect-[3/4] object-cover rounded-2xl img-editorial"
-            width="600"
-            height="800"
-            loading="eager"
-          />
+
+        <!-- Chapter 2: Studies -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-6 mb-8">
+            <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl text-primary">school</span>
+            </div>
+            <h3 class="serif-display text-3xl">Du Soin à la Posturologie</h3>
+          </div>
+          <p class="text-lg text-on-surface-variant leading-relaxed">
+            Mes études m'ont amenée vers le soin — d'abord Pédicure-Podologue, puis Posturologue, où j'ai découvert une approche plus holistique pour traiter les douleurs chroniques.
+          </p>
+        </div>
+
+        <!-- Chapter 3: The Question -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-6 mb-8">
+            <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl text-primary">psychology</span>
+            </div>
+            <h3 class="serif-display text-3xl">La Réflexion Fondatrice</h3>
+          </div>
+          <p class="text-lg text-on-surface-variant leading-relaxed">
+            De ces douleurs chroniques s'est posée la réflexion de la posture et des émotions : qu'est-ce que le corps veut nous dire à travers ces douleurs et maladies ? Cette question a transformé toute ma pratique.
+          </p>
+          <blockquote class="border-l-4 border-primary/30 pl-8 py-4 my-10">
+            <p class="serif-display text-2xl italic text-primary">
+              « Qu'est-ce que le corps veut nous dire à travers ces douleurs et maladies ? »
+            </p>
+          </blockquote>
+        </div>
+
+        <!-- Chapter 4: Energy Work -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-6 mb-8">
+            <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl text-primary">energy_savings_leaf</span>
+            </div>
+            <h3 class="serif-display text-3xl">Vers l'Énergétique</h3>
+          </div>
+          <p class="text-lg text-on-surface-variant leading-relaxed">
+            Aujourd'hui, en plus de mon métier de Podologue Posturologue, je propose des soins énergétiques qui travaillent sur la mémoire cellulaire du corps pour l'aider à libérer des blocages énergétiques et émotionnels.
+          </p>
+        </div>
+
+        <!-- Chapter 5: Au Pour Quoi Pas -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-6 mb-8">
+            <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl text-primary">favorite</span>
+            </div>
+            <h3 class="serif-display text-3xl">La Naissance d'Au Pour Quoi Pas</h3>
+          </div>
+          <p class="text-lg text-on-surface-variant leading-relaxed">
+            Avec ces 20 années d'expérience et une écoute attentive, j'ai pu observer chez les patients un besoin de conseils, d'outils faciles à mettre en place pour améliorer leur quotidien. C'est de là qu'est venue l'idée de créer Au Pour Quoi Pas.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Full Story -->
-    <section class="py-32 lg:py-48 bg-warm-gray">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-        <div class="max-w-3xl">
-          <h2 class="font-editorial text-3xl lg:text-4xl mb-16 font-light reveal">Mon parcours</h2>
-
-          <div class="space-y-12">
-            <div class="reveal">
-              <h3 class="font-editorial text-2xl mb-4">Enracinee dans le Perche</h3>
-              <p class="text-charcoal/60 font-light text-lg leading-relaxed">
-                Originaire du Perche, j'ai toujours vecu proche de la nature. Toute mon enfance jusqu'a l'age de 22 ans, j'ai grandi dans l'univers du sport — la course a pied de maniere intense — avec une premiere decouverte du corps et ses blessures.
-              </p>
-            </div>
-
-            <div class="reveal">
-              <h3 class="font-editorial text-2xl mb-4">Du soin a la posturologie</h3>
-              <p class="text-charcoal/60 font-light text-lg leading-relaxed">
-                Mes etudes m'ont amenee vers le soin — d'abord Pedicure-Podologue, puis Posturologue, ou j'ai decouvert une approche plus holistique pour traiter les douleurs chroniques.
-              </p>
-            </div>
-
-            <div class="reveal">
-              <h3 class="font-editorial text-2xl mb-4">La reflexion fondatrice</h3>
-              <p class="text-charcoal/60 font-light text-lg leading-relaxed mb-6">
-                De ces douleurs chroniques s'est posee la reflexion de la posture et des emotions : qu'est-ce que le corps veut nous dire a travers ces douleurs et maladies ?
-              </p>
-              <blockquote class="border-l border-terracotta/30 pl-8 py-2">
-                <p class="font-editorial italic text-2xl text-charcoal/70">
-                  &laquo; Qu'est-ce que le corps veut nous dire a travers ces douleurs et maladies ? &raquo;
-                </p>
-              </blockquote>
-            </div>
-
-            <div class="reveal">
-              <h3 class="font-editorial text-2xl mb-4">Vers l'energetique</h3>
-              <p class="text-charcoal/60 font-light text-lg leading-relaxed">
-                Aujourd'hui, en plus de mon metier de Podologue Posturologue, je propose des soins energetiques qui travaillent sur la memoire cellulaire du corps pour l'aider a liberer des blocages energetiques et emotionnels.
-              </p>
-            </div>
-
-            <div class="reveal">
-              <h3 class="font-editorial text-2xl mb-4">La naissance d'Au Pour Quoi Pas</h3>
-              <p class="text-charcoal/60 font-light text-lg leading-relaxed">
-                Avec ces 20 annees d'experience et une ecoute attentive, j'ai pu observer chez les patients un besoin de conseils, d'outils faciles a mettre en place pour ameliorer leur quotidien. C'est de la qu'est venue l'idee de creer Au Pour Quoi Pas.
-              </p>
-            </div>
-          </div>
+  <!-- Experience Badge -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="bg-surface-container-low rounded-[3rem] p-12 md:p-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div>
+          <span class="serif-display text-6xl text-primary block mb-4">20+</span>
+          <p class="text-on-surface-variant uppercase tracking-widest text-sm font-[Inter]">Années d'expérience</p>
+        </div>
+        <div>
+          <span class="serif-display text-6xl text-primary block mb-4">3</span>
+          <p class="text-on-surface-variant uppercase tracking-widest text-sm font-[Inter]">Disciplines complémentaires</p>
+        </div>
+        <div>
+          <span class="serif-display text-6xl text-primary block mb-4">1</span>
+          <p class="text-on-surface-variant uppercase tracking-widest text-sm font-[Inter]">Mission : votre bien-être</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Numbers -->
-    <section class="py-32 lg:py-48 bg-warm-white">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24 reveal">
-        <div class="flex flex-col md:flex-row text-center divide-y md:divide-y-0 md:divide-x divide-charcoal/5">
-          <div class="flex-1 py-8 md:py-0 md:px-12">
-            <span class="font-editorial text-6xl font-light text-charcoal block mb-3">20+</span>
-            <span class="text-sage text-[10px] tracking-[0.2em] uppercase">Annees d'experience</span>
-          </div>
-          <div class="flex-1 py-8 md:py-0 md:px-12">
-            <span class="font-editorial text-6xl font-light text-charcoal block mb-3">3</span>
-            <span class="text-sage text-[10px] tracking-[0.2em] uppercase">Disciplines complementaires</span>
-          </div>
-          <div class="flex-1 py-8 md:py-0 md:px-12">
-            <span class="font-editorial text-6xl font-light text-charcoal block mb-3">1</span>
-            <span class="text-sage text-[10px] tracking-[0.2em] uppercase">Mission : votre bien-etre</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Philosophy: POUR QUOI PAS -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="text-center mb-16">
+      <h2 class="serif-display text-5xl mb-6">La Philosophie</h2>
+      <p class="text-on-surface-variant text-xl max-w-2xl mx-auto font-[Newsreader] italic">
+        POUR QUOI PAS — trois mots qui portent une invitation à oser, à explorer et à se transformer.
+      </p>
+    </div>
+  </section>
 
-    <!-- Philosophy -->
-    <section class="py-16 lg:py-24 bg-warm-gray">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24 text-center reveal">
-        <h2 class="font-editorial text-3xl mb-4 font-light">La philosophie</h2>
-        <p class="text-charcoal/50 font-light text-lg max-w-xl mx-auto">
-          POUR QUOI PAS — trois mots qui portent une invitation a oser, a explorer et a se transformer.
-        </p>
-      </div>
-    </section>
+  <PourQuoiPas />
 
-    <PourQuoiPas />
-
-    <!-- CTA -->
-    <section class="py-32 lg:py-48 bg-warm-gray">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24 text-center reveal">
-        <h2 class="font-editorial text-4xl lg:text-5xl mb-10 font-light">Envie de faire connaissance ?</h2>
-        <a href="/contact/" class="inline-block px-10 py-4 border border-terracotta text-terracotta rounded-full font-sans text-[11px] tracking-[0.2em] uppercase hover:bg-terracotta hover:text-white transition-all duration-300">
-          Me contacter
-        </a>
-      </div>
-    </section>
-
-  </div>
+  <!-- CTA -->
+  <section class="mx-6 md:mx-12 my-24 bg-primary-container text-on-primary-container rounded-[4rem] p-12 md:p-32 overflow-hidden relative text-center">
+    <div class="relative z-10">
+      <h2 class="serif-display text-5xl md:text-7xl mb-10 italic">Envie de faire connaissance ?</h2>
+      <p class="text-xl opacity-80 mb-12 max-w-xl mx-auto font-[Newsreader] italic">
+        N'hésitez pas à me contacter pour échanger sur vos besoins et découvrir comment je peux vous accompagner.
+      </p>
+      <a href="/contact/" class="inline-block px-12 py-6 bg-surface text-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:bg-surface-container-lowest transition-colors shadow-2xl">
+        Me contacter
+      </a>
+    </div>
+  </section>
 
 </BaseLayout>

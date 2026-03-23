@@ -34,159 +34,220 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Coherence Cardiaque & Respiration a Mortagne-au-Perche | Au Pour Quoi Pas"
-  description="Regulez votre stress grace a la respiration et la coherence cardiaque. Ateliers, soins energetiques et reflexologie plantaire a Mortagne-au-Perche. Des 30€."
+  title="Cohérence Cardiaque & Respiration à Mortagne-au-Perche | Au Pour Quoi Pas"
+  description="Régulez votre stress grâce à la respiration et la cohérence cardiaque. Ateliers, soins énergétiques et réflexologie plantaire à Mortagne-au-Perche. Dès 30€."
   schema={schema}
 >
 
+  <!-- Decorative Background Organic Shapes -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-secondary-container/20 organic-blob animate-breathe opacity-40"></div>
+    <div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-primary-fixed/10 organic-blob animate-float opacity-30" style="animation-delay: -2s;"></div>
+    <div class="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] bg-surface-container-highest/40 organic-blob animate-float opacity-50" style="animation-delay: -5s;"></div>
+  </div>
+
   <!-- 1. HERO -->
-  <header class="pt-32 lg:pt-40 pb-32 lg:pb-48 border-b border-charcoal/5">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <div class="lg:col-span-7 reveal">
-          <span class="text-sage font-sans text-[10px] tracking-[0.2em] uppercase mb-8 block">Coherence cardiaque · Mortagne-au-Perche</span>
-          <h1 class="font-editorial text-[clamp(3rem,5vw,7rem)] text-charcoal leading-[1.05] mb-8 font-light">
-            Retrouvez votre calme interieur
-          </h1>
-          <p class="max-w-lg text-charcoal/60 text-lg leading-relaxed mb-10 font-light">
-            Apprenez a calmer votre mental, retrouver un sommeil profond et harmoniser votre rythme cardiaque au coeur du Perche. Une parenthese de serenite pour soi.
-          </p>
-          <a href="/ateliers-respiration-coherence-cardiaque/" class="text-terracotta hover:text-terracotta/70 transition-colors duration-300 link-underline text-base">
-            Decouvrir les ateliers &rarr;
+  <header class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+    <!-- Organic blob backgrounds -->
+    <div class="absolute top-20 right-[5%] w-[40vw] h-[40vw] organic-blob bg-secondary/10 blur-3xl -z-10 animate-breathe"></div>
+    <div class="absolute bottom-10 left-[10%] w-[30vw] h-[30vw] organic-blob bg-primary/10 blur-3xl -z-10 animate-float"></div>
+
+    <div class="container mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+      <div class="lg:col-span-7 reveal reveal-up">
+        <span class="text-secondary font-[Inter] text-xs tracking-[0.4em] uppercase mb-10 block opacity-80">Le sanctuaire du souffle &mdash; Mortagne-au-Perche</span>
+        <h1 class="serif-display text-6xl md:text-9xl text-on-surface leading-[0.9] mb-12 tracking-tight">
+          Régulez votre <span class="italic font-extralight text-primary/80">stress</span> par le souffle
+        </h1>
+        <p class="font-[Newsreader] italic text-2xl text-on-surface-variant mb-4">Ateliers de cohérence cardiaque à Mortagne-au-Perche</p>
+        <p class="max-w-xl text-xl text-on-surface/70 leading-relaxed mb-12 font-light">
+          Apprenez à calmer votre mental, retrouver un sommeil profond et harmoniser votre rythme cardiaque au c&oelig;ur du Perche. Une parenthèse de sérénité pour soi.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-8">
+          <a href="/contact/" class="bg-primary text-on-primary px-12 py-5 rounded-full text-xs tracking-[0.2em] uppercase hover:bg-tertiary transition-all shadow-2xl shadow-primary/20 text-center">
+            Réserver un atelier
+          </a>
+          <a href="/ateliers-respiration-coherence-cardiaque/" class="group flex items-center gap-4 text-xs tracking-[0.2em] uppercase font-semibold text-tertiary text-center">
+            Découvrir les séances
+            <span class="w-12 h-[1px] bg-tertiary/30 group-hover:w-16 transition-all duration-500"></span>
           </a>
         </div>
-        <div class="lg:col-span-5 reveal">
+      </div>
+      <div class="lg:col-span-5 relative reveal reveal-up">
+        <div class="relative z-10 aspect-[4/5] rounded-[6rem] overflow-hidden shadow-2xl rotate-1 group">
           <img
-            alt="Personne pratiquant la respiration consciente dans la nature"
-            class="w-full aspect-[3/4] object-cover rounded-2xl img-editorial"
-            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80"
+            alt="Personne pratiquant la respiration dans un espace lumineux et apaisant"
+            class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+            src="/images/hero/hero-premium.webp"
             width="600"
-            height="800"
+            height="750"
           />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-40"></div>
+        </div>
+        <!-- Organic shape behind image -->
+        <div class="absolute inset-0 -top-8 -right-8 organic-blob bg-secondary/20 -z-10 blur-xl"></div>
+        <!-- Glass floating card with quote -->
+        <div class="absolute -bottom-12 -left-12 glass p-10 rounded-[3rem] max-w-[240px] shadow-xl animate-float">
+          <span class="serif-display italic text-lg text-primary leading-tight block">"La paix commence par un souffle conscient."</span>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- 2. INTRO QUOTE -->
-  <section class="py-32 lg:py-48 bg-warm-gray">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24 text-center reveal">
-      <p class="font-editorial italic text-3xl lg:text-5xl text-charcoal leading-snug mb-6 max-w-4xl mx-auto font-light">
-        &laquo; 5 minutes de respiration consciente suffisent a transformer votre journee. &raquo;
-      </p>
-      <span class="text-sage text-[10px] tracking-[0.2em] uppercase">&mdash; Valide par les neurosciences</span>
+  <!-- 2. RECOGNITION SECTION (Problem) -->
+  <section class="py-40 bg-surface-container relative overflow-hidden">
+    <div class="container mx-auto px-8 text-center mb-24 reveal">
+      <h2 class="serif-display text-4xl md:text-5xl font-light mb-4">Le murmure de l'esprit</h2>
+      <p class="text-secondary uppercase tracking-[0.3em] text-[10px] font-bold">Identifiez vos tensions</p>
+    </div>
+    <div class="container mx-auto px-8 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
+      {[
+        { icon: "spa", label: "Stress" },
+        { icon: "psychology", label: "Ruminations", offset: true },
+        { icon: "bedtime", label: "Insomnies" },
+        { icon: "battery_alert", label: "Épuisement", offset: true },
+        { icon: "layers_clear", label: "Brouillard" },
+      ].map((item) => (
+        <div class={`glass p-12 rounded-[4rem] text-center flex flex-col items-center justify-center hover:-translate-y-4 transition-all duration-700 aspect-square group reveal ${item.offset ? 'translate-y-12' : ''}`}>
+          <span class="material-symbols-outlined text-3xl mb-6 text-primary group-hover:scale-125 transition-transform">{item.icon}</span>
+          <p class="serif-display italic text-xl">{item.label}</p>
+        </div>
+      ))}
     </div>
   </section>
 
-  <!-- 3. SERVICES -->
-  <section class="py-32 lg:py-48 bg-warm-white">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-        <!-- Service 1 -->
-        <a href="/ateliers-respiration-coherence-cardiaque/" class="group reveal">
-          <div class="aspect-[16/9] overflow-hidden rounded-lg mb-6">
-            <img alt="Atelier de coherence cardiaque" class="w-full h-full object-cover img-editorial group-hover:scale-[1.02] transition-transform duration-700" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" width="800" height="450" loading="lazy" />
-          </div>
-          <h3 class="font-editorial text-2xl mb-3 group-hover:text-terracotta transition-colors duration-300">Respiration & Coherence</h3>
-          <p class="text-charcoal/50 font-light text-base mb-4">Initiez-vous aux bases de la coherence cardiaque et integrez des routines simples.</p>
-          <span class="text-terracotta text-sm link-underline">En savoir plus &rarr;</span>
-        </a>
-
-        <!-- Service 2 (offset) -->
-        <a href="/ateliers-thematiques/" class="group md:mt-16 reveal">
-          <div class="aspect-[16/9] overflow-hidden rounded-lg mb-6">
-            <img alt="Ateliers thematiques bien-etre" class="w-full h-full object-cover img-editorial group-hover:scale-[1.02] transition-transform duration-700" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&q=80" width="800" height="450" loading="lazy" />
-          </div>
-          <h3 class="font-editorial text-2xl mb-3 group-hover:text-terracotta transition-colors duration-300">Ateliers Thematiques</h3>
-          <p class="text-charcoal/50 font-light text-base mb-4">Stress, emotions, clarte mentale : explorez des besoins specifiques chaque trimestre.</p>
-          <span class="text-terracotta text-sm link-underline">En savoir plus &rarr;</span>
-        </a>
-
-        <!-- Service 3 -->
-        <a href="/soins-energetiques/" class="group reveal">
-          <div class="aspect-[16/9] overflow-hidden rounded-lg mb-6">
-            <img alt="Seance individuelle de soins" class="w-full h-full object-cover img-editorial group-hover:scale-[1.02] transition-transform duration-700" src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=800&q=80" width="800" height="450" loading="lazy" />
-          </div>
-          <h3 class="font-editorial text-2xl mb-3 group-hover:text-terracotta transition-colors duration-300">Seances Privees</h3>
-          <p class="text-charcoal/50 font-light text-base mb-4">Soins energetiques, reflexologie plantaire et accompagnement personnalise.</p>
-          <span class="text-terracotta text-sm link-underline">En savoir plus &rarr;</span>
-        </a>
+  <!-- 3. SOLUTION SECTION — Numbered benefits -->
+  <section class="py-40 bg-surface">
+    <div class="container mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+      <div class="relative order-2 lg:order-1 reveal">
+        <div class="grid grid-cols-2 gap-6 relative">
+          <img alt="Pierres en équilibre au bord de l'eau" class="rounded-[4rem] w-full aspect-[4/5] object-cover shadow-2xl" src="/images/nature/stones-premium.webp" width="400" height="500" loading="lazy" />
+          <img alt="Eau calme du matin" class="rounded-[4rem] w-full aspect-[4/5] object-cover shadow-2xl translate-y-20" src="/images/nature/water-premium.webp" width="400" height="500" loading="lazy" />
+          <div class="absolute -inset-10 bg-primary/5 organic-blob -z-10 scale-125 blur-2xl"></div>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2 reveal reveal-up">
+        <h2 class="serif-display text-5xl md:text-7xl mb-12 leading-tight">La science de la <span class="italic font-light">sérénité</span></h2>
+        <ul class="space-y-12">
+          {[
+            { num: "01", title: "Régulation nerveuse", desc: "Activez votre système parasympathique en quelques minutes grâce au nerf vague." },
+            { num: "02", title: "Intelligence émotionnelle", desc: "Développez une résilience profonde face aux fluctuations de la vie moderne." },
+            { num: "03", title: "Clarté & Focus", desc: "Optimisez l'oxygénation de vos cellules pour une présence mentale renouvelée." },
+            { num: "04", title: "Sommeil réparateur", desc: "Préparez votre corps au repos profond pour des nuits réparatrices." },
+            { num: "05", title: "Énergie durable", desc: "Retrouvez une vitalité naturelle en harmonisant votre rythme cardiaque." },
+          ].map((item) => (
+            <li class="group">
+              <div class="flex items-center gap-6 mb-4">
+                <span class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary text-sm group-hover:bg-primary group-hover:text-white transition-all">{item.num}</span>
+                <h3 class="serif-display text-2xl">{item.title}</h3>
+              </div>
+              <p class="pl-16 text-on-surface/60 font-light leading-relaxed">{item.desc}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- 4. ABOUT -->
-  <section class="py-32 lg:py-48 bg-warm-gray">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-        <div class="lg:col-span-5 reveal">
-          <img
-            alt="Stephanie, fondatrice d'Au Pour Quoi Pas"
-            src="/images/stephanie/portrait.webp"
-            class="w-full aspect-[3/4] object-cover rounded-2xl img-editorial"
-            width="500"
-            height="667"
-            loading="lazy"
-          />
+  <!-- 4. SERVICES — Editorial layout with glass cards -->
+  <section class="py-40 bg-surface-container/50" id="ateliers">
+    <div class="container mx-auto px-8 mb-32 flex flex-col md:flex-row justify-between items-baseline border-b border-primary/10 pb-12 reveal">
+      <h2 class="serif-display text-6xl md:text-8xl mb-8 md:mb-0">Expériences</h2>
+      <p class="max-w-md text-on-surface/50 font-light italic text-lg">Un cadre confidentiel limité à 8 participants pour préserver la qualité de l'accompagnement.</p>
+    </div>
+    <div class="container mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-24">
+      <a href="/ateliers-respiration-coherence-cardiaque/" class="group relative block reveal reveal-up">
+        <div class="aspect-[3/4] rounded-[5rem] overflow-hidden mb-10 shadow-xl">
+          <img alt="Atelier de cohérence cardiaque en groupe" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="/images/services/ateliers-respiration-premium.webp" width="400" height="533" loading="lazy" />
         </div>
-        <div class="lg:col-span-7 reveal">
-          <span class="text-sage font-sans text-[10px] tracking-[0.2em] uppercase mb-6 block">Fondatrice</span>
-          <h2 class="font-editorial text-4xl lg:text-5xl mb-8 font-light">Stephanie</h2>
-          <p class="text-charcoal/60 text-lg leading-relaxed mb-8 font-light">
-            {site.owner.shortBio}
-          </p>
-          <a href="/a-propos/" class="text-terracotta hover:text-terracotta/70 transition-colors duration-300 link-underline text-base">
-            En savoir plus &rarr;
-          </a>
+        <h3 class="serif-display text-3xl mb-4 group-hover:text-primary transition-colors">Respiration & Cohérence</h3>
+        <p class="text-on-surface/60 font-light leading-relaxed mb-8">Initiez-vous aux bases de la cohérence cardiaque et intégrez des routines simples à votre quotidien.</p>
+        <span class="text-xs tracking-[0.3em] uppercase font-bold text-primary flex items-center gap-4">
+          Explorer <span class="w-8 h-[1px] bg-primary group-hover:w-12 transition-all"></span>
+        </span>
+      </a>
+      <a href="/ateliers-thematiques/" class="group relative md:mt-32 block reveal reveal-up">
+        <div class="aspect-[3/4] rounded-[5rem] overflow-hidden mb-10 shadow-xl">
+          <img alt="Atelier thématique bien-être en groupe" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="/images/services/ateliers-thematiques-premium.webp" width="400" height="533" loading="lazy" />
         </div>
+        <h3 class="serif-display text-3xl mb-4 group-hover:text-primary transition-colors">Ateliers Thématiques</h3>
+        <p class="text-on-surface/60 font-light leading-relaxed mb-8">Gestion du stress, émotions, clarté mentale : explorez des besoins spécifiques lors d'ateliers trimestriels.</p>
+        <span class="text-xs tracking-[0.3em] uppercase font-bold text-primary flex items-center gap-4">
+          Explorer <span class="w-8 h-[1px] bg-primary group-hover:w-12 transition-all"></span>
+        </span>
+      </a>
+      <a href="/soins-energetiques/" class="group relative block reveal reveal-up">
+        <div class="aspect-[3/4] rounded-[5rem] overflow-hidden mb-10 shadow-xl">
+          <img alt="Séance individuelle de soins énergétiques" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="/images/services/seances-individuelles-premium.webp" width="400" height="533" loading="lazy" />
+        </div>
+        <h3 class="serif-display text-3xl mb-4 group-hover:text-primary transition-colors">Séances Privées</h3>
+        <p class="text-on-surface/60 font-light leading-relaxed mb-8">Soins énergétiques, réflexologie plantaire et accompagnement personnalisé selon votre propre rythme.</p>
+        <span class="text-xs tracking-[0.3em] uppercase font-bold text-primary flex items-center gap-4">
+          Explorer <span class="w-8 h-[1px] bg-primary group-hover:w-12 transition-all"></span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. PRICING — Glass cards -->
+  <section class="py-40 bg-surface" id="tarifs">
+    <div class="container mx-auto px-8 max-w-6xl">
+      <div class="text-center mb-24 reveal">
+        <h2 class="serif-display text-5xl md:text-7xl font-light mb-4">Investir en soi</h2>
+        <div class="w-24 h-[1px] bg-primary mx-auto opacity-30"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="glass p-16 rounded-[5rem] flex flex-col justify-between hover:border-primary/30 transition-all duration-500 group reveal reveal-up">
+          <div>
+            <span class="text-xs tracking-[0.4em] uppercase text-secondary mb-10 block font-bold">À la séance</span>
+            <h3 class="serif-display text-4xl mb-4">Atelier Découverte</h3>
+            <p class="text-primary serif-display text-5xl mb-12">30€</p>
+            <ul class="space-y-6 mb-12 opacity-70 font-light">
+              <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 1h15 de pratique guidée</li>
+              <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Évaluation respiratoire incluse</li>
+            </ul>
+          </div>
+          <a href="/contact/" class="block w-full py-5 rounded-full border border-primary text-primary text-xs tracking-[0.3em] uppercase font-bold group-hover:bg-primary group-hover:text-white transition-all text-center">S'inscrire</a>
+        </div>
+        <div class="bg-primary p-16 rounded-[5rem] text-white flex flex-col justify-between shadow-2xl shadow-primary/30 relative overflow-hidden group reveal reveal-up">
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 organic-blob group-hover:scale-150 transition-transform duration-1000"></div>
+          <div class="relative z-10">
+            <span class="text-xs tracking-[0.4em] uppercase text-white/60 mb-10 block font-bold">Forfait complet</span>
+            <h3 class="serif-display text-4xl mb-4">10 Séances</h3>
+            <p class="text-white serif-display text-5xl mb-12">140€</p>
+            <ul class="space-y-6 mb-12 text-white/80 font-light">
+              <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span> Accès à tous les ateliers respiration</li>
+              <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span> Suivi personnalisé</li>
+              <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span> Évaluation de cohérence offerte</li>
+            </ul>
+          </div>
+          <a href="/contact/" class="relative z-10 block w-full py-5 rounded-full bg-white text-primary text-xs tracking-[0.3em] uppercase font-bold hover:bg-surface transition-all text-center">S'inscrire</a>
+        </div>
+      </div>
+      <div class="text-center mt-12 reveal">
+        <a class="text-primary border-b border-primary/20 pb-1 font-medium hover:border-primary transition-all" href="/tarifs/">Voir tous les tarifs détaillés</a>
       </div>
     </div>
   </section>
 
-  <!-- 5. NUMBERS -->
-  <section class="py-32 lg:py-48 bg-warm-white">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24 reveal">
-      <div class="flex flex-col md:flex-row text-center divide-y md:divide-y-0 md:divide-x divide-charcoal/5">
-        <div class="flex-1 py-8 md:py-0 md:px-12">
-          <span class="font-editorial text-6xl lg:text-7xl font-light text-charcoal block mb-3">20+</span>
-          <span class="text-sage text-[10px] tracking-[0.2em] uppercase">Annees d'experience</span>
+  <!-- 6. ABOUT — Editorial with organic shapes -->
+  <section class="py-40 bg-surface-container overflow-hidden" id="propos">
+    <div class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+      <div class="lg:col-span-6 relative reveal">
+        <div class="relative z-10 rounded-[6rem] overflow-hidden aspect-[4/5] shadow-2xl">
+          <img alt="Stéphanie, fondatrice d'Au Pour Quoi Pas" src="/images/stephanie/portrait-premium.webp" class="w-full h-full object-cover" width="500" height="625" loading="lazy" />
         </div>
-        <div class="flex-1 py-8 md:py-0 md:px-12">
-          <span class="font-editorial text-6xl lg:text-7xl font-light text-charcoal block mb-3">5 min</span>
-          <span class="text-sage text-[10px] tracking-[0.2em] uppercase">De pratique quotidienne</span>
-        </div>
-        <div class="flex-1 py-8 md:py-0 md:px-12">
-          <span class="font-editorial text-6xl lg:text-7xl font-light text-charcoal block mb-3">8 max</span>
-          <span class="text-sage text-[10px] tracking-[0.2em] uppercase">Participants par atelier</span>
-        </div>
+        <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-primary/10 organic-blob -z-10 blur-xl"></div>
+        <div class="absolute -top-16 -right-16 w-80 h-80 bg-secondary/10 organic-blob -z-10 blur-2xl"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- 6. PRICING PREVIEW -->
-  <section class="py-32 lg:py-48 bg-warm-gray">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 reveal">
-        <div class="border border-charcoal/5 rounded-lg p-10 lg:p-14">
-          <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-4">A la seance</span>
-          <div class="flex justify-between items-baseline mb-4">
-            <h3 class="font-editorial text-2xl">Atelier Decouverte</h3>
-            <span class="font-editorial text-3xl text-charcoal">30&euro;</span>
-          </div>
-          <p class="text-charcoal/50 font-light text-sm">1h15 de pratique guidee en petit groupe</p>
+      <div class="lg:col-span-6 reveal reveal-up">
+        <span class="text-secondary font-[Inter] text-xs tracking-[0.4em] uppercase mb-8 block font-bold">Fondatrice</span>
+        <h2 class="serif-display text-5xl md:text-7xl mb-12">Qui suis-je ?</h2>
+        <div class="space-y-8 text-xl text-on-surface/70 font-light leading-relaxed mb-12">
+          <p>{site.owner.shortBio}</p>
+          <p class="serif-display text-3xl italic text-primary pt-8 border-t border-primary/10">"Le souffle est le pont entre le corps et l'esprit."</p>
         </div>
-        <div class="border border-charcoal/5 rounded-lg p-10 lg:p-14">
-          <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-4">Forfait complet</span>
-          <div class="flex justify-between items-baseline mb-4">
-            <h3 class="font-editorial text-2xl">10 Seances</h3>
-            <span class="font-editorial text-3xl text-charcoal">140&euro;</span>
-          </div>
-          <p class="text-charcoal/50 font-light text-sm">Acces a tous les ateliers respiration + suivi</p>
-        </div>
-      </div>
-      <div class="text-center mt-10 reveal">
-        <a href="/tarifs/" class="text-terracotta hover:text-terracotta/70 transition-colors duration-300 link-underline text-base">
-          Tous les tarifs &rarr;
+        <a href="/a-propos/" class="bg-surface-container-low text-primary px-10 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-surface-container-high transition-all inline-block">
+          En savoir plus
         </a>
       </div>
     </div>
@@ -195,55 +256,73 @@ const schema = {
   <!-- 7. POUR QUOI PAS -->
   <PourQuoiPas />
 
-  <!-- 8. LOCATION -->
-  <section class="py-32 lg:py-48 bg-warm-gray">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
-        <div class="reveal">
-          <h2 class="font-editorial text-4xl lg:text-5xl mb-12 font-light">Nous trouver</h2>
-          <div class="space-y-10">
+  <!-- 8. MAP / LOCAL -->
+  <section class="py-40 bg-surface" id="lieu">
+    <div class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-32 items-center">
+      <div class="lg:col-span-5 reveal">
+        <h2 class="serif-display text-6xl mb-16">Nous trouver</h2>
+        <div class="space-y-16">
+          <div class="flex gap-10">
+            <span class="text-xs tracking-[0.4em] uppercase text-primary font-bold">01 Lieu</span>
             <div>
-              <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-3">Adresse</span>
-              <p class="text-charcoal/70 font-light text-lg">{site.address.street}<br />{site.address.postalCode} {site.address.city}</p>
+              <p class="serif-display text-3xl mb-2">L'Atelier</p>
+              <p class="text-on-surface/60 font-light leading-relaxed">{site.address.street}<br />{site.address.postalCode} {site.address.city}</p>
             </div>
+          </div>
+          <div class="flex gap-10">
+            <span class="text-xs tracking-[0.4em] uppercase text-primary font-bold">02 Temps</span>
             <div>
-              <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-3">Horaires</span>
-              <ul class="text-charcoal/70 font-light text-lg space-y-1">
+              <p class="serif-display text-3xl mb-2">Nos Rendez-vous</p>
+              <ul class="text-on-surface/60 font-light space-y-1">
                 {site.schedule.map((s) => (
-                  <li>{s.day} : {s.time}{s.note ? ` (${s.note})` : ''}</li>
+                  <li><span class="font-medium text-secondary">{s.day} :</span> {s.time}{s.note ? ` (${s.note})` : ''}</li>
                 ))}
               </ul>
-              <p class="text-sage text-sm mt-3">Uniquement sur reservation</p>
+              <p class="text-secondary italic text-sm mt-4 font-medium">Uniquement sur réservation</p>
             </div>
+          </div>
+          <div class="flex gap-10">
+            <span class="text-xs tracking-[0.4em] uppercase text-primary font-bold">03 Lien</span>
             <div>
-              <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-3">Email</span>
-              <a class="text-terracotta hover:text-terracotta/70 transition-colors link-underline text-lg" href={`mailto:${site.email}`}>{site.email}</a>
+              <p class="serif-display text-3xl mb-2">Écrivez-nous</p>
+              <a class="text-primary border-b border-primary/20 pb-1 hover:border-primary transition-all text-xl" href={`mailto:${site.email}`}>{site.email}</a>
             </div>
           </div>
         </div>
-        <div class="h-[450px] rounded-lg overflow-hidden reveal">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600!2d0.5478!3d48.5206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s44+rue+Montcacune+Mortagne-au-Perche!5e0!3m2!1sfr!2sfr!4v1"
-            width="100%"
-            height="100%"
-            style="border:0"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Carte — Au Pour Quoi Pas, 44 rue Montcacune, Mortagne-au-Perche"
-          ></iframe>
-        </div>
+      </div>
+      <div class="lg:col-span-7 h-[600px] rounded-[6rem] overflow-hidden shadow-2xl relative reveal reveal-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600!2d0.5478!3d48.5206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s44+rue+Montcacune+Mortagne-au-Perche!5e0!3m2!1sfr!2sfr!4v1"
+          width="100%"
+          height="100%"
+          style="border:0"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Carte — Au Pour Quoi Pas, 44 rue Montcacune, Mortagne-au-Perche"
+        ></iframe>
       </div>
     </div>
   </section>
 
-  <!-- 9. CTA -->
-  <section class="py-32 lg:py-48 bg-warm-white">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-24 text-center reveal">
-      <h2 class="font-editorial text-4xl lg:text-6xl mb-10 font-light">Pret(e) a respirer ?</h2>
-      <a href="/contact/" class="inline-block px-10 py-4 border border-terracotta text-terracotta rounded-full font-sans text-[11px] tracking-[0.2em] uppercase hover:bg-terracotta hover:text-white transition-all duration-300">
-        Reserver un atelier
-      </a>
+  <!-- 9. FINAL CTA — Atmospheric dark -->
+  <section class="pb-40 px-8">
+    <div class="max-w-7xl mx-auto bg-tertiary rounded-[6rem] py-32 px-12 text-center text-white relative overflow-hidden group reveal">
+      <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] organic-blob bg-primary/20 blur-[120px] group-hover:scale-110 transition-transform duration-1000"></div>
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <h2 class="serif-display text-6xl md:text-8xl mb-12 leading-[1.1] font-light">
+          Le premier souffle du <span class="italic text-primary/80">changement</span>.
+        </h2>
+        <p class="text-xl text-white/60 mb-16 italic serif-display font-light">
+          Rejoignez-nous pour une séance d'initiation et redécouvrez votre calme originel.
+        </p>
+        <div class="flex flex-col items-center gap-10">
+          <a href="/contact/" class="bg-primary text-white px-16 py-6 rounded-full text-xs tracking-[0.4em] uppercase font-bold hover:scale-105 transition-all shadow-2xl shadow-primary/40">
+            Réserver votre première séance
+          </a>
+          <a class="text-white/40 hover:text-white transition-colors text-xs tracking-widest uppercase" href={`mailto:${site.email}`}>{site.email}</a>
+        </div>
+      </div>
     </div>
   </section>
 

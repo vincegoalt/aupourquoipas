@@ -36,118 +36,196 @@ const schema = {
 
 <BaseLayout
   title="Contact | Au Pour Quoi Pas — Mortagne-au-Perche"
-  description="Contactez Au Pour Quoi Pas pour reserver un atelier ou poser vos questions. 44 rue Montcacune, Mortagne-au-Perche. aupourquoipas61@gmail.com"
+  description="Contactez Au Pour Quoi Pas pour réserver un atelier ou poser vos questions. 44 rue Montcacune, Mortagne-au-Perche. aupourquoipas61@gmail.com"
   schema={schema}
 >
 
-  <div class="pt-32 lg:pt-40">
+  <div class="pt-40 lg:pt-0">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
 
-    <!-- Breadcrumb -->
-    <nav class="max-w-[1200px] mx-auto px-6 lg:px-24 mb-12">
-      <ol class="flex gap-3 items-center text-[10px] font-sans tracking-[0.2em] uppercase text-charcoal/30">
-        <li><a class="hover:text-terracotta transition-colors" href="/">Accueil</a></li>
-        <li>&mdash;</li>
-        <li><span class="text-charcoal/50">Contact</span></li>
-      </ol>
-    </nav>
+      <!-- Left Column: Editorial & Form -->
+      <div class="px-8 py-20 lg:p-24 xl:p-32 flex flex-col justify-center">
 
-    <!-- Hero -->
-    <header class="max-w-[1200px] mx-auto px-6 lg:px-24 pb-20">
-      <h1 class="font-editorial text-[clamp(2.5rem,4vw,5rem)] text-charcoal leading-[1.1] mb-6 font-light reveal">
-        Parlons de votre serenite
-      </h1>
-      <p class="max-w-lg text-charcoal/60 text-lg leading-relaxed font-light reveal">
-        Un moment suspendu, une respiration partagee. Nos services s'adaptent a votre quete de calme interieur.
-      </p>
-    </header>
+        <!-- Breadcrumb -->
+        <nav class="mb-12">
+          <ol class="flex gap-4 items-center text-[10px] font-[Inter] tracking-[0.3em] uppercase text-on-surface-variant/40">
+            <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
+            <li><span class="material-symbols-outlined text-[10px]">chevron_right</span></li>
+            <li><span class="text-primary/70">Contact</span></li>
+          </ol>
+        </nav>
 
-    <!-- Content -->
-    <section class="max-w-[1200px] mx-auto px-6 lg:px-24 pb-32 lg:pb-48">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+        <header class="mb-16 editorial-header">
+          <span class="text-primary/60 font-[Inter] text-xs uppercase tracking-[0.4em] mb-6 block">Service Conciergerie</span>
+          <h1 class="text-6xl md:text-7xl lg:text-8xl serif-display italic font-light text-on-surface leading-[1.1] mb-8">
+            Parlons de votre <span class="text-primary font-normal">sérénité</span>.
+          </h1>
+          <p class="text-on-surface-variant/70 text-xl max-w-lg tracking-wide leading-relaxed italic font-light">
+            Un moment suspendu, une respiration partagée. Nos services s'adaptent à votre quête de calme intérieur.
+          </p>
+        </header>
 
-        <!-- Form -->
-        <div class="lg:col-span-7 reveal">
-          <form class="space-y-8" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="contact" />
-            <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
+        <form class="space-y-10 max-w-xl" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <label for="nom" class="text-[10px] font-sans uppercase tracking-[0.2em] text-charcoal/40 block mb-2">Votre nom</label>
-                <input id="nom" name="nom" type="text" required placeholder="Nom complet" class="input-underline" />
-              </div>
-              <div>
-                <label for="email" class="text-[10px] font-sans uppercase tracking-[0.2em] text-charcoal/40 block mb-2">Email</label>
-                <input id="email" name="email" type="email" required placeholder="votre@adresse.com" class="input-underline" />
-              </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="group flex flex-col gap-3">
+              <label for="nom" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Votre Nom</label>
+              <input
+                id="nom"
+                name="nom"
+                type="text"
+                required
+                placeholder="Votre nom complet"
+                class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30"
+              />
             </div>
-
-            <div>
-              <label for="telephone" class="text-[10px] font-sans uppercase tracking-[0.2em] text-charcoal/40 block mb-2">Telephone</label>
-              <input id="telephone" name="telephone" type="tel" placeholder="+33 6 00 00 00 00" class="input-underline" />
-            </div>
-
-            <div>
-              <label for="service" class="text-[10px] font-sans uppercase tracking-[0.2em] text-charcoal/40 block mb-2">Service souhaite</label>
-              <select id="service" name="service" class="input-underline appearance-none cursor-pointer">
-                <option value="">Choisir un service</option>
-                {services.map((s) => (
-                  <option value={s.slug}>{s.name}</option>
-                ))}
-                <option value="location-salle">Location de salle</option>
-                <option value="autre">Autre demande</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="text-[10px] font-sans uppercase tracking-[0.2em] text-charcoal/40 block mb-2">Votre message</label>
-              <textarea id="message" name="message" rows="4" required placeholder="Decrivez vos attentes..." class="input-underline resize-none"></textarea>
-            </div>
-
-            <button type="submit" class="inline-block px-10 py-4 border border-terracotta text-terracotta rounded-full font-sans text-[11px] tracking-[0.2em] uppercase hover:bg-terracotta hover:text-white transition-all duration-300">
-              Envoyer
-            </button>
-          </form>
-        </div>
-
-        <!-- Info + Map -->
-        <div class="lg:col-span-5 reveal">
-          <div class="space-y-10 mb-12">
-            <div>
-              <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-3">Adresse</span>
-              <p class="text-charcoal/70 font-light text-lg">{site.address.street}<br />{site.address.postalCode} {site.address.city}</p>
-            </div>
-            <div>
-              <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-3">Horaires</span>
-              <ul class="text-charcoal/70 font-light text-lg space-y-1">
-                {site.schedule.map((s) => (
-                  <li>{s.day} : {s.time}{s.note ? ` (${s.note})` : ''}</li>
-                ))}
-              </ul>
-              <p class="text-sage text-sm mt-2">Uniquement sur reservation</p>
-            </div>
-            <div>
-              <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-3">Email</span>
-              <a class="text-terracotta hover:text-terracotta/70 transition-colors link-underline text-lg" href={`mailto:${site.email}`}>{site.email}</a>
+            <div class="group flex flex-col gap-3">
+              <label for="email" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Courriel</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="votre@adresse.com"
+                class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30"
+              />
             </div>
           </div>
 
-          <div class="h-[350px] rounded-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600!2d0.5478!3d48.5206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s44+rue+Montcacune+Mortagne-au-Perche!5e0!3m2!1sfr!2sfr!4v1"
-              width="100%"
-              height="100%"
-              style="border:0"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Carte — Au Pour Quoi Pas, 44 rue Montcacune, Mortagne-au-Perche"
-            ></iframe>
+          <div class="group flex flex-col gap-3">
+            <label for="telephone" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Téléphone</label>
+            <input
+              id="telephone"
+              name="telephone"
+              type="tel"
+              placeholder="+33 6 00 00 00 00"
+              class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30"
+            />
+          </div>
+
+          <div class="group flex flex-col gap-3">
+            <label for="service" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">L'Atelier souhaité</label>
+            <select
+              id="service"
+              name="service"
+              class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg appearance-none cursor-pointer"
+            >
+              <option value="">Choisir une expérience</option>
+              {services.map((s) => (
+                <option value={s.slug}>{s.name}</option>
+              ))}
+              <option value="location-salle">Location de salle</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </div>
+
+          <div class="group flex flex-col gap-3">
+            <label for="message" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Votre Intention</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="3"
+              required
+              placeholder="Décrivez vos attentes en quelques mots..."
+              class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30 resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="group relative overflow-hidden bg-tertiary text-on-primary py-6 px-12 rounded-full serif-display italic text-2xl hover:bg-primary transition-all duration-700 shadow-2xl shadow-black/10 flex items-center justify-between w-full"
+          >
+            <span class="relative z-10">Faire une demande</span>
+            <span class="material-symbols-outlined relative z-10 opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+          </button>
+        </form>
+
+        <!-- Address & Contact info -->
+        <div class="mt-24 grid grid-cols-2 gap-12 border-t border-primary/10 pt-12">
+          <div>
+            <h4 class="serif-display italic text-xl text-primary mb-4">L'Atelier</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed tracking-wider uppercase font-light">
+              {site.address.street}<br />
+              {site.address.postalCode} {site.address.city}
+            </p>
+          </div>
+          <div>
+            <h4 class="serif-display italic text-xl text-primary mb-4">Direct</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed tracking-wider font-light">
+              <a href={`mailto:${site.email}`} class="hover:text-primary transition-colors">{site.email}</a>
+            </p>
           </div>
         </div>
 
+        <!-- Schedule -->
+        <div class="mt-12 border-t border-primary/10 pt-12">
+          <h4 class="serif-display italic text-xl text-primary mb-4">Nos Rendez-vous</h4>
+          <ul class="text-on-surface-variant space-y-1 text-sm">
+            {site.schedule.map((s) => (
+              <li><span class="font-medium text-secondary">{s.day} :</span> {s.time}{s.note ? ` (${s.note})` : ''}</li>
+            ))}
+          </ul>
+          <p class="text-secondary text-xs italic mt-2">Uniquement sur réservation</p>
+        </div>
+      </div>
+
+      <!-- Right Column: Full-height image/map (sticky) -->
+      <div class="hidden lg:block relative sticky top-0 h-screen overflow-hidden bg-primary/5">
+        <div class="absolute inset-0 z-0">
+          <img
+            class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply"
+            alt="Vue artistique de Mortagne-au-Perche"
+            src="/images/lieu/contact-map.webp"
+            width="800"
+            height="1200"
+            loading="lazy"
+          />
+        </div>
+        <!-- Artistic overlays -->
+        <div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-primary/5 mix-blend-overlay z-10"></div>
+        <div class="absolute bottom-20 left-20 z-20 max-w-sm">
+          <div class="bg-surface/80 backdrop-blur-md p-10 border border-white/20 shadow-2xl">
+            <span class="material-symbols-outlined text-primary text-4xl mb-6 block">explore</span>
+            <h3 class="serif-display italic text-3xl text-on-surface mb-4">Lieu de ressourcement</h3>
+            <p class="text-on-surface-variant text-base leading-relaxed font-light">
+              Niché au c&oelig;ur du Perche, notre atelier a été conçu comme un sanctuaire de lumière et de silence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dark inspirational quote section -->
+    <section class="bg-tertiary py-32 px-8 text-center relative overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 opacity-5 pointer-events-none">
+        <span class="material-symbols-outlined text-[40rem]">spa</span>
+      </div>
+      <div class="max-w-4xl mx-auto relative z-10">
+        <span class="material-symbols-outlined text-primary-fixed-dim text-6xl mb-12 block">all_inclusive</span>
+        <p class="serif-display text-4xl md:text-6xl text-surface italic font-light leading-snug mb-16">
+          &ldquo;La sérénité n'est pas l'absence d'orage, mais le calme à l'intérieur de soi.&rdquo;
+        </p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <span class="px-8 py-3 rounded-full border border-primary-fixed-dim/20 text-primary-fixed-dim text-xs uppercase tracking-[0.3em] font-[Inter]">Expérience Intimiste</span>
+          <span class="px-8 py-3 rounded-full border border-primary-fixed-dim/20 text-primary-fixed-dim text-xs uppercase tracking-[0.3em] font-[Inter]">Accompagnement Dédié</span>
+          <span class="px-8 py-3 rounded-full border border-primary-fixed-dim/20 text-primary-fixed-dim text-xs uppercase tracking-[0.3em] font-[Inter]">Cadre Préservé</span>
+        </div>
       </div>
     </section>
+
+    <!-- Group Info Banner -->
+    <div class="max-w-screen-xl mx-auto px-8 py-32">
+      <div class="p-12 bg-secondary-container/30 rounded-[3rem] text-center border border-secondary/10 reveal">
+        <span class="material-symbols-outlined text-5xl text-secondary mb-6 block">group</span>
+        <p class="serif-display text-3xl md:text-4xl text-on-surface italic font-light max-w-2xl mx-auto leading-snug">
+          Groupes limités à 8 personnes &mdash; réservez votre place pour une expérience privilégiée.
+        </p>
+      </div>
+    </div>
 
   </div>
 

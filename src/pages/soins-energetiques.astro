@@ -21,7 +21,7 @@ const schema = {
       "areaServed": { "@type": "City", "name": "Mortagne-au-Perche" },
       "offers": {
         "@type": "Offer",
-        "name": "Seance individuelle",
+        "name": "Séance individuelle",
         "price": "65",
         "priceCurrency": "EUR"
       }
@@ -41,7 +41,8 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Accueil", "item": site.url },
-        { "@type": "ListItem", "position": 2, "name": service.shortName }
+        { "@type": "ListItem", "position": 2, "name": "Soins", "item": `${site.url}/soins-energetiques/` },
+        { "@type": "ListItem", "position": 3, "name": service.shortName }
       ]
     }
   ]
@@ -54,157 +55,170 @@ const schema = {
   schema={schema}
 >
 
-  <div class="pt-32 lg:pt-40">
+  <!-- Breadcrumb -->
+  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
+    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
+      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
+      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
+      <li><a class="hover:text-primary transition-colors" href="/soins-energetiques/">Soins</a></li>
+      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
+      <li><span class="text-primary/80">{service.shortName}</span></li>
+    </ol>
+  </nav>
 
-    <!-- Breadcrumb -->
-    <nav class="max-w-[1200px] mx-auto px-6 lg:px-24 mb-12">
-      <ol class="flex gap-3 items-center text-[10px] font-sans tracking-[0.2em] uppercase text-charcoal/30">
-        <li><a class="hover:text-terracotta transition-colors" href="/">Accueil</a></li>
-        <li>&mdash;</li>
-        <li><span class="text-charcoal/50">{service.shortName}</span></li>
-      </ol>
-    </nav>
-
-    <!-- Hero -->
-    <section class="max-w-[1200px] mx-auto px-6 lg:px-24 pb-32 lg:pb-48 border-b border-charcoal/5">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <div class="lg:col-span-7 reveal">
-          <h1 class="font-editorial text-[clamp(2.5rem,4vw,5rem)] text-charcoal leading-[1.1] mb-8 font-light">
-            {service.heroHeading}
-          </h1>
-          <p class="text-charcoal/60 text-lg leading-relaxed max-w-xl font-light mb-8">
-            {service.heroSubtitle}
-          </p>
-          <a href="/contact/" class="text-terracotta hover:text-terracotta/70 transition-colors duration-300 link-underline text-base">
-            Prendre rendez-vous &rarr;
-          </a>
-        </div>
-        <div class="lg:col-span-5 reveal">
-          <img
-            alt="Seance de soins energetiques"
-            class="w-full aspect-[3/4] object-cover rounded-2xl img-editorial"
-            src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1200&q=80"
-            width="600"
-            height="800"
-            loading="eager"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- What is it -->
-    <section class="py-32 lg:py-48 bg-warm-gray">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-        <div class="max-w-3xl reveal">
-          <span class="text-sage text-[10px] tracking-[0.2em] uppercase block mb-6">Comprendre</span>
-          <h2 class="font-editorial text-3xl lg:text-4xl mb-8 font-light">Qu'est-ce qu'un soin energetique ?</h2>
-          <div class="space-y-6 text-charcoal/60 font-light text-lg leading-relaxed">
-            <p>
-              Un soin energetique travaille sur la memoire cellulaire du corps pour l'aider a liberer des blocages energetiques et emotionnels. C'est une approche douce et non invasive qui considere le lien profond entre le corps, les emotions et la posture.
-            </p>
-            <p>
-              Nos emotions non exprimees, nos traumatismes passes et nos tensions chroniques laissent une empreinte dans nos cellules. Le soin energetique vise a retablir la circulation naturelle de l'energie dans le corps pour liberer ces memoires et retrouver un etat d'equilibre.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Body-Emotions Link -->
-    <section class="py-32 lg:py-48 bg-warm-white">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-        <h2 class="font-editorial text-3xl lg:text-4xl mb-16 font-light reveal">Le lien corps &mdash; emotions &mdash; douleurs</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-          {[
-            { title: "La Posture", desc: "Votre posture reflete votre histoire emotionnelle. Des epaules voutees, un dos bloque : le corps parle de ce que les mots ne disent pas." },
-            { title: "Les Emotions", desc: "Les emotions non exprimees s'inscrivent dans le corps sous forme de tensions, de contractures et de douleurs chroniques." },
-            { title: "Les Douleurs Chroniques", desc: "Quand une douleur persiste malgre les soins, il est temps d'ecouter ce que le corps essaie de nous dire." },
-          ].map((item) => (
-            <div class="reveal">
-              <h3 class="font-editorial text-2xl mb-4">{item.title}</h3>
-              <p class="text-charcoal/50 font-light leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Session Process -->
-    <section class="py-32 lg:py-48 bg-warm-gray">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-        <h2 class="font-editorial text-3xl lg:text-4xl mb-16 font-light reveal">Deroulement d'une seance</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {[
-            { num: "01", title: "Accueil & Echange", desc: "Un temps d'ecoute pour comprendre vos besoins, votre histoire et vos attentes." },
-            { num: "02", title: "Installation", desc: "Vous vous allongez confortablement. Le cadre est pense pour favoriser la detente totale." },
-            { num: "03", title: "Le Soin", desc: "Par contact leger ou a distance du corps, le soin libere les blocages energetiques en douceur." },
-            { num: "04", title: "Bilan & Ressentis", desc: "Un echange pour partager vos ressentis et comprendre les messages de votre corps." },
-          ].map((step) => (
-            <div class="reveal">
-              <span class="text-terracotta/30 font-editorial text-4xl block mb-3">{step.num}</span>
-              <h3 class="font-editorial text-xl mb-3">{step.title}</h3>
-              <p class="text-charcoal/50 font-light text-sm leading-relaxed">{step.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="py-32 lg:py-48 bg-warm-white">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-        <h2 class="font-editorial text-3xl lg:text-4xl mb-12 font-light reveal">Tarif</h2>
-        <div class="border-t border-charcoal/5 reveal">
-          <div class="flex justify-between items-baseline py-8">
-            <span class="text-charcoal text-lg font-light">Seance individuelle</span>
-            <span class="font-editorial text-3xl">65&euro;</span>
-          </div>
-        </div>
-        <a href="/contact/" class="mt-6 inline-block text-terracotta hover:text-terracotta/70 transition-colors link-underline">Prendre rendez-vous &rarr;</a>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-32 lg:py-48 bg-warm-gray">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-        <h2 class="font-editorial text-3xl lg:text-4xl mb-16 font-light reveal">Questions frequentes</h2>
-        <div class="max-w-3xl reveal">
-          <FAQAccordion faqs={service.faqs} />
-        </div>
-      </div>
-    </section>
-
-    <!-- Related -->
-    <section class="py-32 lg:py-48 bg-warm-white">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
-        <h2 class="font-editorial text-3xl mb-12 font-light reveal">Explorer d'autres soins</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
-          <a class="group py-6 border-t border-charcoal/5" href="/reflexologie-plantaire/">
-            <h3 class="font-editorial text-xl mb-2 group-hover:text-terracotta transition-colors">Reflexologie Plantaire</h3>
-            <span class="text-terracotta text-sm">Decouvrir &rarr;</span>
-          </a>
-          <a class="group py-6 border-t border-charcoal/5" href="/ateliers-respiration-coherence-cardiaque/">
-            <h3 class="font-editorial text-xl mb-2 group-hover:text-terracotta transition-colors">Respiration & Coherence</h3>
-            <span class="text-terracotta text-sm">Decouvrir &rarr;</span>
-          </a>
-          <a class="group py-6 border-t border-charcoal/5" href="/accompagnement-personnel/">
-            <h3 class="font-editorial text-xl mb-2 group-hover:text-terracotta transition-colors">Accompagnement Personnel</h3>
-            <span class="text-terracotta text-sm">Decouvrir &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-32 lg:py-48 bg-warm-gray">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-24 text-center reveal">
-        <h2 class="font-editorial text-4xl lg:text-5xl mb-10 font-light">Pret(e) a liberer vos tensions ?</h2>
-        <a href="/contact/" class="inline-block px-10 py-4 border border-terracotta text-terracotta rounded-full font-sans text-[11px] tracking-[0.2em] uppercase hover:bg-terracotta hover:text-white transition-all duration-300">
-          Reserver votre seance
+  <!-- Hero -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-20">
+    <div class="space-y-8">
+      <h1 class="serif-display text-6xl md:text-8xl leading-tight text-primary font-light">{service.heroHeading}</h1>
+      <p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-xl">
+        {service.heroSubtitle}
+      </p>
+      <div class="pt-4">
+        <a href="/contact/" class="inline-block px-10 py-5 bg-primary text-on-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/10">
+          Prendre rendez-vous
         </a>
       </div>
-    </section>
+    </div>
+    <div class="relative group">
+      <div class="absolute inset-0 bg-secondary/5 rounded-[4rem] -rotate-3 scale-105 group-hover:rotate-0 transition-transform duration-700"></div>
+      <img
+        alt="Séance de soins énergétiques dans un cadre apaisant et lumineux"
+        class="relative w-full aspect-[4/5] object-cover rounded-[3.5rem] shadow-2xl"
+        src="/images/services/soins-energetiques.webp"
+        width="600"
+        height="750"
+        loading="eager"
+      />
+    </div>
+  </section>
 
-  </div>
+  <!-- Educational: What is it? -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="bg-surface-container rounded-[3rem] p-12 md:p-24 relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-12 opacity-10">
+        <span class="material-symbols-outlined text-[12rem]">energy_savings_leaf</span>
+      </div>
+      <div class="relative z-10 max-w-3xl">
+        <span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-[Inter] tracking-widest uppercase mb-6">Comprendre</span>
+        <h2 class="serif-display text-5xl md:text-6xl mb-10 leading-tight">
+          Qu'est-ce qu'un soin énergétique ?
+        </h2>
+        <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+          <p>
+            Un soin énergétique travaille sur la <strong class="text-on-surface">mémoire cellulaire du corps</strong> pour l'aider à libérer des blocages énergétiques et émotionnels. C'est une approche douce et non invasive qui considère le lien profond entre le corps, les émotions et la posture.
+          </p>
+          <p>
+            Nos émotions non exprimées, nos traumatismes passés et nos tensions chroniques laissent une empreinte dans nos cellules. Le soin énergétique vise à rétablir la circulation naturelle de l'énergie dans le corps pour libérer ces mémoires et retrouver un état d'équilibre.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Link: Posture, Emotions, Chronic Pain -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="text-center mb-20">
+      <h2 class="serif-display text-5xl mb-4">Le Lien Corps — Émotions — Douleurs</h2>
+      <div class="h-1 w-20 bg-primary/20 mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {[
+        { icon: "accessibility_new", title: "La Posture", desc: "Votre posture reflète votre histoire émotionnelle. Des épaules voûtées, un dos bloqué : le corps parle de ce que les mots ne disent pas." },
+        { icon: "favorite", title: "Les Émotions", desc: "Les émotions non exprimées s'inscrivent dans le corps sous forme de tensions, de contractures et de douleurs chroniques qui résistent aux traitements classiques." },
+        { icon: "healing", title: "Les Douleurs Chroniques", desc: "Quand une douleur persiste malgré les soins, il est temps d'écouter ce que le corps essaie de nous dire à travers cette souffrance." },
+      ].map((item) => (
+        <div class="bg-surface-container-low p-10 rounded-[2.5rem] group hover:bg-surface-container-high transition-colors duration-500">
+          <span class="material-symbols-outlined text-4xl text-primary mb-6 block">{item.icon}</span>
+          <h3 class="serif-display text-2xl mb-4">{item.title}</h3>
+          <p class="text-on-surface-variant leading-relaxed">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- How a Session Works -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="text-center mb-20">
+      <h2 class="serif-display text-5xl mb-4">Déroulement d'une Séance</h2>
+      <div class="h-1 w-20 bg-primary/20 mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {[
+        { step: "01", title: "Accueil & Échange", desc: "Un temps d'écoute pour comprendre vos besoins, votre histoire et vos attentes.", icon: "chat" },
+        { step: "02", title: "Installation", desc: "Vous vous allongez confortablement. Le cadre est pensé pour favoriser la détente totale.", icon: "bed" },
+        { step: "03", title: "Le Soin", desc: "Par contact léger ou à distance du corps, le soin libère les blocages énergétiques en douceur.", icon: "healing" },
+        { step: "04", title: "Bilan & Ressentis", desc: "Un échange pour partager vos ressentis et comprendre les messages de votre corps.", icon: "psychology" },
+      ].map((item) => (
+        <div class="text-center group">
+          <div class="w-20 h-20 rounded-full bg-surface-container-high mx-auto flex items-center justify-center group-hover:bg-primary/5 transition-colors duration-500 mb-6">
+            <span class="material-symbols-outlined text-3xl text-primary">{item.icon}</span>
+          </div>
+          <span class="text-xs font-[Inter] uppercase tracking-widest text-secondary mb-2 block">{item.step}</span>
+          <h3 class="serif-display text-xl mb-3">{item.title}</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
+    <div class="bg-surface-container-low rounded-[3rem] p-12 md:p-20 text-center">
+      <h2 class="serif-display text-5xl mb-6">Investissement</h2>
+      <p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">Une séance individuelle d'environ une heure, dans un cadre intime et bienveillant.</p>
+      <div class="inline-flex flex-col items-center bg-surface-container-lowest rounded-[2rem] p-12 shadow-sm">
+        <span class="text-xs uppercase tracking-widest text-secondary mb-2 font-[Inter]">Séance individuelle</span>
+        <span class="serif-display text-7xl text-primary mb-6">65€</span>
+        <a href="/contact/" class="px-10 py-4 bg-primary text-on-primary rounded-full font-[Inter] tracking-widest uppercase text-xs hover:opacity-90 transition-all">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-3xl mx-auto px-6 md:px-12 mb-32">
+    <h2 class="serif-display text-5xl mb-16 text-center italic">Questions Fréquentes</h2>
+    <FAQAccordion faqs={service.faqs} />
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-6 md:mx-12 mb-24 bg-primary-container text-on-primary-container rounded-[4rem] p-12 md:p-32 overflow-hidden relative text-center">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+    </div>
+    <div class="relative z-10">
+      <h2 class="serif-display text-5xl md:text-7xl mb-10 italic">Prêt(e) à libérer vos tensions ?</h2>
+      <p class="text-xl opacity-80 mb-12 max-w-xl mx-auto font-[Newsreader] italic">
+        Offrez à votre corps l'écoute qu'il mérite et retrouvez votre vitalité naturelle.
+      </p>
+      <a href="/contact/" class="inline-block px-12 py-6 bg-surface text-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:bg-surface-container-lowest transition-colors shadow-2xl">
+        Réserver votre séance
+      </a>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-20">
+    <h2 class="serif-display text-4xl mb-12 text-center italic">Explorer d'autres soins</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/reflexologie-plantaire/">
+        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">footprint</span>
+        <h3 class="serif-display text-2xl mb-4">Réflexologie Plantaire</h3>
+        <p class="text-on-surface-variant text-sm mb-6">Harmonisez votre organisme par les zones réflexes du pied.</p>
+        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
+      </a>
+      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/ateliers-respiration-coherence-cardiaque/">
+        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">air</span>
+        <h3 class="serif-display text-2xl mb-4">Respiration & Cohérence</h3>
+        <p class="text-on-surface-variant text-sm mb-6">Régulez votre stress grâce à la cohérence cardiaque.</p>
+        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
+      </a>
+      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/accompagnement-personnel/">
+        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">verified</span>
+        <h3 class="serif-display text-2xl mb-4">Accompagnement Personnel</h3>
+        <p class="text-on-surface-variant text-sm mb-6">Un parcours sur-mesure combinant toutes nos approches.</p>
+        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
+      </a>
+    </div>
+  </section>
 
 </BaseLayout>
