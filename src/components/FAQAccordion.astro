@@ -5,14 +5,16 @@ interface Props {
 const { faqs } = Astro.props;
 ---
 
-<div class="space-y-4">
+<div class="space-y-8">
   {faqs.map((faq) => (
-    <details class="group bg-surface-container-low rounded-3xl p-6 [&_summary::-webkit-details-marker]:hidden">
-      <summary class="flex items-center justify-between cursor-pointer">
-        <h4 class="text-xl font-medium text-on-surface">{faq.question}</h4>
-        <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">expand_more</span>
+    <details class="group bg-white/30 backdrop-blur-sm rounded-[2rem] border border-primary/5 p-8 cursor-pointer transition-all hover:bg-white/50 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex items-center justify-between">
+        <h4 class="text-2xl serif-display italic text-on-surface">{faq.question}</h4>
+        <span class="material-symbols-outlined transition-transform duration-500 group-open:rotate-45 text-primary/40">add</span>
       </summary>
-      <p class="mt-4 text-on-surface-variant leading-relaxed">{faq.answer}</p>
+      <div class="mt-6 text-on-surface-variant/70 leading-relaxed text-lg pl-2 border-l-2 border-primary/10">
+        {faq.answer}
+      </div>
     </details>
   ))}
 </div>

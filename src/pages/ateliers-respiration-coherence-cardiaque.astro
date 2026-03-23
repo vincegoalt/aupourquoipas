@@ -55,192 +55,215 @@ const schema = {
   schema={schema}
 >
 
-  <!-- Breadcrumb -->
-  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
-    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
-      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
-      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
-      <li><a class="hover:text-primary transition-colors" href="/ateliers-respiration-coherence-cardiaque/">Ateliers</a></li>
-      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
-      <li><span class="text-primary/80">{service.shortName}</span></li>
-    </ol>
-  </nav>
+  <main class="pt-40 md:pt-56 pb-20 max-w-screen-2xl mx-auto px-6 md:px-12">
 
-  <!-- Hero -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-20">
-    <div class="space-y-8">
-      <h1 class="serif-display text-6xl md:text-8xl leading-tight text-primary font-light">{service.heroHeading}</h1>
-      <p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-xl">
-        {service.heroSubtitle}
-      </p>
-      <div class="pt-4">
-        <a href="/contact/" class="inline-block px-10 py-5 bg-primary text-on-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/10">
-          Réserver votre initiation
+    <!-- Breadcrumb -->
+    <nav class="flex gap-4 items-center mb-16 text-[10px] font-[Inter] tracking-[0.3em] uppercase text-on-surface-variant/40 reveal">
+      <a class="hover:text-primary transition-colors" href="/">Accueil</a>
+      <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+      <a class="hover:text-primary transition-colors" href="/ateliers-respiration-coherence-cardiaque/">Ateliers</a>
+      <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+      <span class="text-primary/70">{service.shortName}</span>
+    </nav>
+
+    <!-- Hero — Dramatic large heading -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center mb-60">
+      <div class="space-y-12 reveal">
+        <h1 class="text-7xl md:text-[10rem] leading-[0.9] text-primary font-light text-balance premium-tracking -ml-1 serif-display italic">
+          L'Art du <br/>Souffle
+        </h1>
+        <p class="text-2xl md:text-3xl text-on-surface-variant/80 font-light leading-relaxed max-w-xl italic serif-display">
+          {service.heroSubtitle}
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row gap-6">
+          <a href="/contact/" class="px-12 py-6 bg-primary text-white rounded-full font-[Inter] tracking-[0.2em] uppercase text-xs hover:shadow-2xl hover:bg-primary/90 transition-all text-center">Réserver votre initiation</a>
+          <a href="#science" class="px-12 py-6 border border-primary/20 text-primary rounded-full font-[Inter] tracking-[0.2em] uppercase text-xs hover:bg-primary/5 transition-all text-center">En savoir plus</a>
+        </div>
+      </div>
+      <div class="relative reveal reveal-up">
+        <div class="absolute -inset-10 bg-secondary/5 rounded-full blur-3xl floating opacity-60"></div>
+        <div class="organic-mask overflow-hidden bg-primary/5 p-4">
+          <img
+            alt="Séance de cohérence cardiaque dans un espace lumineux et apaisant"
+            class="w-full aspect-[4/5] object-cover rounded-[3.5rem] grayscale-[20%] hover:grayscale-0 transition-all duration-1000 scale-110"
+            src="/images/services/ateliers-hero-premium.webp"
+            width="600"
+            height="750"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Science Hook — Glass card with numbered benefits -->
+    <section class="mb-60" id="science">
+      <div class="glass-card rounded-[4rem] p-16 md:p-32 relative overflow-hidden reveal">
+        <div class="absolute -top-20 -right-20 opacity-[0.03] floating">
+          <span class="material-symbols-outlined text-[30rem]">air</span>
+        </div>
+        <div class="relative z-10">
+          <div class="flex items-center gap-4 mb-12">
+            <div class="h-[1px] w-12 bg-primary/40"></div>
+            <span class="text-xs font-[Inter] tracking-[0.4em] uppercase text-primary/60">Évidence Scientifique</span>
+          </div>
+          <h2 class="serif-display text-6xl md:text-8xl mb-16 leading-[1.1] max-w-4xl text-on-surface italic">
+            &laquo; Cinq minutes pour <span class="text-primary">cinq heures</span> d'équilibre biologique. &raquo;
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+            {[
+              { num: "01", title: "Sérénité Hormonale", desc: "Réduction de 25 % du taux de cortisol (hormone du stress)." },
+              { num: "02", title: "Vitalité Organique", desc: "Libération de dopamine, ocytocine, sérotonine et endorphine." },
+              { num: "03", title: "Protection Naturelle", desc: "Amélioration de la qualité du sommeil et de la digestion." },
+              { num: "04", title: "Clarté Cognitive", desc: "Clarté mentale et meilleure gestion émotionnelle." },
+            ].map((item) => (
+              <div class="group flex gap-8 items-start reveal reveal-up">
+                <span class="text-primary/30 serif-display text-5xl italic group-hover:text-primary transition-colors">{item.num}</span>
+                <div>
+                  <h4 class="text-2xl mb-3 serif-display italic">{item.title}</h4>
+                  <p class="text-on-surface-variant/70 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process — "Le Rituel" with glass circles and connecting line -->
+    <section class="mb-60">
+      <div class="text-center mb-32 reveal">
+        <h2 class="serif-display text-7xl mb-6 premium-tracking font-light italic">Le Rituel</h2>
+        <p class="text-on-surface-variant/50 font-[Inter] tracking-[0.3em] uppercase text-xs">Un cheminement en trois temps</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-24 relative">
+        <!-- Connecting line -->
+        <div class="hidden md:block absolute top-16 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>
+        {[
+          { icon: "analytics", title: "Écoute", desc: "Mesure de votre variabilité de fréquence cardiaque (VFC) pour comprendre votre état actuel de stress et votre capacité respiratoire." },
+          { icon: "psychology_alt", title: "Harmonie", desc: "Synchronisation du c&oelig;ur et de l'esprit par des techniques respiratoires guidées. La règle du « 365 » : 3 fois par jour, 6 respirations par minute, 5 minutes." },
+          { icon: "calendar_today", title: "Ancrage", desc: "Intégration pérenne de ce sanctuaire de 5 minutes dans votre quotidien pour devenir autonome dans votre pratique." },
+        ].map((step, i) => (
+          <div class={`space-y-8 text-center group reveal reveal-up`}>
+            <div class="relative w-32 h-32 mx-auto">
+              <div class="absolute inset-0 bg-primary/5 rounded-full scale-110 group-hover:scale-150 transition-transform duration-700 opacity-0 group-hover:opacity-100"></div>
+              <div class="relative w-full h-full glass-card rounded-full flex items-center justify-center">
+                <span class="material-symbols-outlined text-4xl text-primary/60">{step.icon}</span>
+              </div>
+            </div>
+            <h3 class="serif-display text-4xl italic">{step.title}</h3>
+            <p class="text-on-surface-variant/70 leading-relaxed max-w-xs mx-auto">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Pricing — "L'Investissement" -->
+    <section class="mb-60">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-12 mb-16 reveal">
+          <h2 class="serif-display text-7xl font-light premium-tracking italic">L'Investissement</h2>
+        </div>
+
+        <!-- Main card: Initiation -->
+        <div class="lg:col-span-8 glass-card rounded-[3rem] p-16 flex flex-col justify-between reveal reveal-up">
+          <div>
+            <span class="text-[10px] font-[Inter] tracking-[0.4em] uppercase text-primary/60 block mb-6">Expérience Signature</span>
+            <h3 class="serif-display text-5xl italic mb-8">L'Atelier d'Initiation</h3>
+            <p class="text-on-surface-variant/70 text-xl mb-12 max-w-2xl leading-relaxed">Une immersion d'une heure et quinze minutes dédiée à la maîtrise du souffle. En petit comité pour une guidance précise et intime.</p>
+            <div class="flex flex-wrap gap-8 mb-16">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary/40 text-sm">schedule</span>
+                <span class="text-[10px] font-[Inter] uppercase tracking-widest text-on-surface-variant">1h15 de session</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary/40 text-sm">groups</span>
+                <span class="text-[10px] font-[Inter] uppercase tracking-widest text-on-surface-variant">Max. 8 personnes</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-12 items-end justify-between border-t border-primary/10 pt-12">
+            <div class="flex gap-16">
+              <div class="group">
+                <span class="block text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/40 mb-3">Groupe</span>
+                <span class="serif-display text-5xl font-light text-primary group-hover:translate-x-1 transition-transform inline-block">30€</span>
+              </div>
+              <div class="group">
+                <span class="block text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/40 mb-3">Individuel</span>
+                <span class="serif-display text-5xl font-light text-primary group-hover:translate-x-1 transition-transform inline-block">70€</span>
+              </div>
+            </div>
+            <a href="/contact/" class="px-12 py-5 bg-primary text-white rounded-full font-[Inter] tracking-[0.2em] uppercase text-[10px] hover:shadow-xl transition-all text-center">S'inscrire</a>
+          </div>
+        </div>
+
+        <!-- Side card: Packs -->
+        <div class="lg:col-span-4 bg-secondary/5 border border-secondary/10 rounded-[3rem] p-16 flex flex-col justify-between reveal reveal-up">
+          <div>
+            <span class="text-[10px] font-[Inter] tracking-[0.4em] uppercase text-secondary block mb-6">Continuité</span>
+            <h3 class="serif-display text-4xl italic mb-8">Packs Sérénité</h3>
+            <p class="text-sm text-on-surface-variant/60 mb-12 leading-relaxed">Pour ancrer la pratique dans le temps à travers un suivi régulier.</p>
+            <ul class="space-y-6 mb-16">
+              <li class="flex justify-between items-center pb-4 border-b border-secondary/10">
+                <span class="text-on-surface/80">Forfait 5 séances</span>
+                <span class="serif-display text-2xl font-light text-primary">80€</span>
+              </li>
+              <li class="flex justify-between items-center pb-4 border-b border-secondary/10">
+                <span class="text-on-surface/80">Forfait 10 séances</span>
+                <span class="serif-display text-2xl font-light text-primary">140€</span>
+              </li>
+            </ul>
+          </div>
+          <a href="/contact/" class="block w-full py-5 bg-secondary text-white rounded-full font-[Inter] tracking-[0.2em] uppercase text-[10px] hover:shadow-lg transition-all text-center">Découvrir</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ — Premium style -->
+    <section class="mb-60 max-w-4xl mx-auto">
+      <h2 class="serif-display text-6xl mb-24 text-center italic reveal">Curiosités & Éclairages</h2>
+      <div class="reveal reveal-up">
+        <FAQAccordion faqs={service.faqs} />
+      </div>
+    </section>
+
+    <!-- Final CTA — "Respirez à nouveau." -->
+    <section class="mb-40 text-center relative py-40 px-6 rounded-[5rem] overflow-hidden reveal">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-primary-container/20"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/30 via-transparent to-transparent opacity-60"></div>
+      </div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <h2 class="serif-display text-8xl md:text-[11rem] mb-12 italic font-light leading-[0.8] premium-tracking text-primary/90">Respirez à nouveau.</h2>
+        <p class="text-2xl md:text-3xl font-light text-on-surface-variant/70 mb-16 serif-display italic">Votre premier pas vers une clarté retrouvée commence ici.</p>
+        <a href="/contact/" class="px-16 py-8 bg-primary text-white rounded-full font-[Inter] tracking-[0.3em] uppercase text-xs hover:scale-105 transition-all shadow-2xl hover:shadow-primary/20 inline-block">Réserver l'expérience</a>
+      </div>
+    </section>
+
+    <!-- Related Services — Glass cards -->
+    <section class="mb-20">
+      <h2 class="serif-display text-4xl mb-16 text-center italic premium-tracking reveal">Poursuivre le voyage</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a class="group block p-12 glass-card hover:bg-primary/5 transition-all duration-700 rounded-[3rem] reveal reveal-up" href="/ateliers-thematiques/">
+          <span class="material-symbols-outlined text-primary/40 mb-8 text-3xl block">spa</span>
+          <h3 class="serif-display text-3xl mb-4 italic">Ateliers Thématiques</h3>
+          <p class="text-on-surface-variant/60 text-sm mb-8 leading-relaxed">Des moments de partage autour du bien-être et de la connaissance de soi.</p>
+          <span class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-primary group-hover:translate-x-4 inline-block transition-transform duration-500">Explorer &rarr;</span>
+        </a>
+        <a class="group block p-12 glass-card hover:bg-primary/5 transition-all duration-700 rounded-[3rem] reveal reveal-up" href="/soins-energetiques/">
+          <span class="material-symbols-outlined text-primary/40 mb-8 text-3xl block">energy_savings_leaf</span>
+          <h3 class="serif-display text-3xl mb-4 italic">Soins Énergétiques</h3>
+          <p class="text-on-surface-variant/60 text-sm mb-8 leading-relaxed">Réalignement subtil de vos centres de vitalité.</p>
+          <span class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-primary group-hover:translate-x-4 inline-block transition-transform duration-500">Explorer &rarr;</span>
+        </a>
+        <a class="group block p-12 glass-card hover:bg-primary/5 transition-all duration-700 rounded-[3rem] reveal reveal-up" href="/reflexologie-plantaire/">
+          <span class="material-symbols-outlined text-primary/40 mb-8 text-3xl block">footprint</span>
+          <h3 class="serif-display text-3xl mb-4 italic">Réflexologie Plantaire</h3>
+          <p class="text-on-surface-variant/60 text-sm mb-8 leading-relaxed">L'ancrage par le toucher ancestral.</p>
+          <span class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-primary group-hover:translate-x-4 inline-block transition-transform duration-500">Explorer &rarr;</span>
         </a>
       </div>
-    </div>
-    <div class="relative group">
-      <div class="absolute inset-0 bg-secondary/5 rounded-[4rem] -rotate-3 scale-105 group-hover:rotate-0 transition-transform duration-700"></div>
-      <img
-        alt="Séance de cohérence cardiaque dans un espace lumineux et apaisant"
-        class="relative w-full aspect-[4/5] object-cover rounded-[3.5rem] shadow-2xl"
-        src="/images/services/ateliers-respiration.webp"
-        width="600"
-        height="750"
-        loading="eager"
-      />
-    </div>
-  </section>
+    </section>
 
-  <!-- Science Hook: 5 min = 5h -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
-    <div class="bg-surface-container rounded-[3rem] p-12 md:p-24 relative overflow-hidden">
-      <div class="absolute top-0 right-0 p-12 opacity-10">
-        <span class="material-symbols-outlined text-[12rem]">air</span>
-      </div>
-      <div class="relative z-10 max-w-3xl">
-        <span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-[Inter] tracking-widest uppercase mb-6">La Science du Souffle</span>
-        <h2 class="serif-display text-5xl md:text-6xl mb-10 leading-tight">
-          « 5 minutes de pratique offrent 5 heures de sérénité biologique. »
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {[
-            "Réduction de 25 % du taux de cortisol (hormone du stress).",
-            "Libération de dopamine, ocytocine, sérotonine et endorphine.",
-            "Amélioration de la qualité du sommeil et de la digestion.",
-            "Clarté mentale et meilleure gestion émotionnelle.",
-          ].map((text) => (
-            <div class="flex gap-4">
-              <span class="material-symbols-outlined text-primary flex-shrink-0">check_circle</span>
-              <p class="text-lg text-on-surface-variant">{text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3 Steps: Évaluation → Apprentissage → Routine -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
-    <div class="text-center mb-20">
-      <h2 class="serif-display text-5xl mb-4">Le Chemin vers la Cohérence</h2>
-      <div class="h-1 w-20 bg-primary/20 mx-auto"></div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-      {[
-        { icon: "analytics", title: "1. Évaluation", desc: "Mesure de votre variabilité de fréquence cardiaque (VFC) pour comprendre votre état actuel de stress et votre capacité respiratoire." },
-        { icon: "psychology_alt", title: "2. Apprentissage", desc: "Assimilation des techniques respiratoires guidées pour synchroniser cœur et cerveau. La règle du « 365 » : 3 fois par jour, 6 respirations par minute, 5 minutes." },
-        { icon: "calendar_today", title: "3. Routine", desc: "Élaboration d'un plan personnalisé pour intégrer ces 5 minutes dans votre quotidien et devenir autonome dans votre pratique." },
-      ].map((step) => (
-        <div class="space-y-6 text-center group">
-          <div class="w-24 h-24 rounded-full bg-surface-container-high mx-auto flex items-center justify-center group-hover:bg-primary/5 transition-colors duration-500">
-            <span class="material-symbols-outlined text-4xl text-primary">{step.icon}</span>
-          </div>
-          <h3 class="serif-display text-3xl">{step.title}</h3>
-          <p class="text-on-surface-variant leading-relaxed">{step.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Pricing Block -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32 grid grid-cols-1 md:grid-cols-12 gap-6">
-    <div class="md:col-span-12 mb-10">
-      <h2 class="serif-display text-5xl">Formats & Investissement</h2>
-    </div>
-
-    <!-- Initiation -->
-    <div class="md:col-span-8 bg-surface-container-low p-10 rounded-[2.5rem] flex flex-col justify-between">
-      <div>
-        <h3 class="serif-display text-3xl mb-6">L'Atelier d'Initiation</h3>
-        <p class="text-on-surface-variant text-lg mb-8 max-w-lg">
-          Une séance immersive d'1h15 pour poser les bases scientifiques et expérimenter les premiers bienfaits. Groupe limité à 8 personnes pour une attention personnalisée.
-        </p>
-        <div class="flex flex-wrap gap-4 mb-10">
-          <span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/10 text-sm font-[Inter] uppercase tracking-widest text-primary">1h15 de session</span>
-          <span class="px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/10 text-sm font-[Inter] uppercase tracking-widest text-primary">Maximum 8 pers.</span>
-        </div>
-      </div>
-      <div class="flex flex-col md:flex-row gap-8 items-end justify-between border-t border-outline-variant/10 pt-10">
-        <div class="flex gap-10">
-          <div>
-            <span class="block text-xs uppercase tracking-widest text-on-surface-variant/60 mb-1">Groupe</span>
-            <span class="serif-display text-3xl font-light text-primary">30€</span>
-          </div>
-          <div>
-            <span class="block text-xs uppercase tracking-widest text-on-surface-variant/60 mb-1">Individuel</span>
-            <span class="serif-display text-3xl font-light text-primary">70€</span>
-          </div>
-        </div>
-        <a href="/contact/" class="px-8 py-4 bg-primary text-on-primary rounded-full font-[Inter] tracking-widest uppercase text-xs text-center hover:opacity-90 transition-all">S'inscrire</a>
-      </div>
-    </div>
-
-    <!-- Forfaits -->
-    <div class="md:col-span-4 bg-secondary-container p-10 rounded-[2.5rem] text-on-secondary-container flex flex-col justify-between">
-      <div>
-        <h3 class="serif-display text-3xl mb-6">Packs Sérénité</h3>
-        <p class="text-sm opacity-80 mb-8">Pour ancrer la pratique dans le temps à travers un suivi régulier.</p>
-        <ul class="space-y-4 mb-10">
-          <li class="flex justify-between items-center pb-2 border-b border-on-secondary-container/10">
-            <span>Forfait 5 séances</span>
-            <span class="serif-display text-2xl font-light">80€</span>
-          </li>
-          <li class="flex justify-between items-center pb-2 border-b border-on-secondary-container/10">
-            <span>Forfait 10 séances</span>
-            <span class="serif-display text-2xl font-light">140€</span>
-          </li>
-        </ul>
-      </div>
-      <a href="/contact/" class="block w-full py-4 bg-on-secondary-container text-secondary-container rounded-full font-[Inter] tracking-widest uppercase text-xs text-center hover:opacity-90 transition-all">Découvrir</a>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="max-w-3xl mx-auto px-6 md:px-12 mb-32">
-    <h2 class="serif-display text-5xl mb-16 text-center italic">Questions Fréquentes</h2>
-    <FAQAccordion faqs={service.faqs} />
-  </section>
-
-  <!-- CTA -->
-  <section class="mx-6 md:mx-12 mb-24 bg-primary-container text-on-primary-container rounded-[4rem] p-12 md:p-32 overflow-hidden relative text-center">
-    <div class="absolute inset-0 opacity-10 pointer-events-none">
-      <div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-    </div>
-    <div class="relative z-10">
-      <h2 class="serif-display text-5xl md:text-7xl mb-10 italic">Prêt(e) à respirer à nouveau ?</h2>
-      <p class="text-xl opacity-80 mb-12 max-w-xl mx-auto font-[Newsreader] italic">
-        Rejoignez-nous pour une session d'initiation et commencez votre voyage vers une vie plus sereine.
-      </p>
-      <a href="/contact/" class="inline-block px-12 py-6 bg-surface text-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:bg-surface-container-lowest transition-colors shadow-2xl">
-        Réserver votre séance d'initiation
-      </a>
-    </div>
-  </section>
-
-  <!-- Related Services -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-20">
-    <h2 class="serif-display text-4xl mb-12 text-center italic">Explorer d'autres soins</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/ateliers-thematiques/">
-        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">spa</span>
-        <h3 class="serif-display text-2xl mb-4">Ateliers Thématiques</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Des moments de partage autour du bien-être et de la connaissance de soi.</p>
-        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
-      </a>
-      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/soins-energetiques/">
-        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">energy_savings_leaf</span>
-        <h3 class="serif-display text-2xl mb-4">Soins Énergétiques</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Réalignez vos centres d'énergie pour une vitalité retrouvée.</p>
-        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
-      </a>
-      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/reflexologie-plantaire/">
-        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">footprint</span>
-        <h3 class="serif-display text-2xl mb-4">Réflexologie Plantaire</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Une approche ancestrale pour libérer les tensions du corps.</p>
-        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
-      </a>
-    </div>
-  </section>
+  </main>
 
 </BaseLayout>

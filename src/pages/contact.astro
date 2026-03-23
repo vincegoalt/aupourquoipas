@@ -40,77 +40,79 @@ const schema = {
   schema={schema}
 >
 
-  <!-- Breadcrumb -->
-  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
-    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
-      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
-      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
-      <li><span class="text-primary/80">Contact</span></li>
-    </ol>
-  </nav>
+  <div class="pt-40 lg:pt-0">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
 
-  <!-- Hero -->
-  <header class="max-w-screen-xl mx-auto px-6 md:px-12 mb-20 py-12">
-    <h1 class="serif-display text-6xl md:text-8xl font-light text-primary leading-tight mb-6">Parlons de votre sérénité.</h1>
-    <p class="text-on-surface-variant/80 text-lg max-w-xl tracking-wide leading-relaxed">
-      Un moment pour soi, une respiration partagée. Contactez-nous pour réserver votre atelier ou poser vos questions.
-    </p>
-  </header>
+      <!-- Left Column: Editorial & Form -->
+      <div class="px-8 py-20 lg:p-24 xl:p-32 flex flex-col justify-center">
 
-  <!-- Content Grid -->
-  <div class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <!-- Breadcrumb -->
+        <nav class="mb-12">
+          <ol class="flex gap-4 items-center text-[10px] font-[Inter] tracking-[0.3em] uppercase text-on-surface-variant/40">
+            <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
+            <li><span class="material-symbols-outlined text-[10px]">chevron_right</span></li>
+            <li><span class="text-primary/70">Contact</span></li>
+          </ol>
+        </nav>
 
-      <!-- Form -->
-      <section class="bg-surface-container-low rounded-[2rem] p-8 md:p-12">
-        <form class="space-y-8" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <header class="mb-16 editorial-header">
+          <span class="text-primary/60 font-[Inter] text-xs uppercase tracking-[0.4em] mb-6 block">Service Conciergerie</span>
+          <h1 class="text-6xl md:text-7xl lg:text-8xl serif-display italic font-light text-on-surface leading-[1.1] mb-8">
+            Parlons de votre <span class="text-primary font-normal">sérénité</span>.
+          </h1>
+          <p class="text-on-surface-variant/70 text-xl max-w-lg tracking-wide leading-relaxed italic font-light">
+            Un moment suspendu, une respiration partagée. Nos services s'adaptent à votre quête de calme intérieur.
+          </p>
+        </header>
+
+        <form class="space-y-10 max-w-xl" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="flex flex-col gap-2">
-              <label for="nom" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Nom</label>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="group flex flex-col gap-3">
+              <label for="nom" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Votre Nom</label>
               <input
                 id="nom"
                 name="nom"
                 type="text"
                 required
                 placeholder="Votre nom complet"
-                class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+                class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30"
               />
             </div>
-            <div class="flex flex-col gap-2">
-              <label for="email" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Email</label>
+            <div class="group flex flex-col gap-3">
+              <label for="email" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Courriel</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
-                placeholder="exemple@mail.com"
-                class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+                placeholder="votre@adresse.com"
+                class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30"
               />
             </div>
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label for="telephone" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Téléphone</label>
+          <div class="group flex flex-col gap-3">
+            <label for="telephone" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Téléphone</label>
             <input
               id="telephone"
               name="telephone"
               type="tel"
               placeholder="+33 6 00 00 00 00"
-              class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+              class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30"
             />
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label for="service" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Quel atelier vous intéresse ?</label>
+          <div class="group flex flex-col gap-3">
+            <label for="service" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">L'Atelier souhaité</label>
             <select
               id="service"
               name="service"
-              class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors appearance-none"
+              class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg appearance-none cursor-pointer"
             >
-              <option value="">Sélectionnez un service</option>
+              <option value="">Choisir une expérience</option>
               {services.map((s) => (
                 <option value={s.slug}>{s.name}</option>
               ))}
@@ -119,101 +121,112 @@ const schema = {
             </select>
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label for="message" class="text-sm font-[Inter] uppercase tracking-widest text-on-surface-variant/70">Message</label>
+          <div class="group flex flex-col gap-3">
+            <label for="message" class="text-[10px] font-[Inter] uppercase tracking-[0.3em] text-on-surface-variant/60 group-focus-within:text-primary transition-colors">Votre Intention</label>
             <textarea
               id="message"
               name="message"
-              rows="4"
+              rows="3"
               required
-              placeholder="Comment pouvons-nous vous aider ?"
-              class="bg-surface-container-lowest border-none rounded-[0.75rem] px-4 py-4 focus:ring-1 focus:ring-primary/20 transition-colors"
+              placeholder="Décrivez vos attentes en quelques mots..."
+              class="glass-input border-none rounded-none border-b border-primary/10 px-0 py-4 focus:ring-0 transition-all text-lg placeholder:text-on-surface-variant/30 resize-none"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="w-full bg-primary text-on-primary py-5 rounded-full serif-display italic text-2xl hover:opacity-90 transition-all shadow-lg shadow-primary/10"
+            class="group relative overflow-hidden bg-tertiary text-on-primary py-6 px-12 rounded-full serif-display italic text-2xl hover:bg-primary transition-all duration-700 shadow-2xl shadow-black/10 flex items-center justify-between w-full"
           >
-            Envoyer
+            <span class="relative z-10">Faire une demande</span>
+            <span class="material-symbols-outlined relative z-10 opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">arrow_forward</span>
           </button>
         </form>
-      </section>
 
-      <!-- Contact Info + Map -->
-      <section class="space-y-16 lg:sticky lg:top-40">
-        <div class="space-y-10">
-          <div class="flex items-start gap-6">
-            <div class="bg-secondary-container p-4 rounded-[1rem] text-secondary">
-              <span class="material-symbols-outlined text-3xl">location_on</span>
-            </div>
-            <div>
-              <h3 class="serif-display text-2xl italic text-on-surface mb-2">L'Atelier</h3>
-              <p class="text-on-surface-variant leading-relaxed">
-                {site.address.street}<br />
-                {site.address.postalCode} {site.address.city}<br />
-                France
-              </p>
-            </div>
+        <!-- Address & Contact info -->
+        <div class="mt-24 grid grid-cols-2 gap-12 border-t border-primary/10 pt-12">
+          <div>
+            <h4 class="serif-display italic text-xl text-primary mb-4">L'Atelier</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed tracking-wider uppercase font-light">
+              {site.address.street}<br />
+              {site.address.postalCode} {site.address.city}
+            </p>
           </div>
-
-          <div class="flex items-start gap-6">
-            <div class="bg-secondary-container p-4 rounded-[1rem] text-secondary">
-              <span class="material-symbols-outlined text-3xl">schedule</span>
-            </div>
-            <div>
-              <h3 class="serif-display text-2xl italic text-on-surface mb-2">Nos Rendez-vous</h3>
-              <ul class="text-on-surface-variant space-y-1">
-                {site.schedule.map((s) => (
-                  <li><span class="font-medium text-secondary">{s.day} :</span> {s.time}{s.note ? ` (${s.note})` : ''}</li>
-                ))}
-              </ul>
-              <p class="text-secondary text-sm italic mt-2">Uniquement sur réservation</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-6">
-            <div class="bg-secondary-container p-4 rounded-[1rem] text-secondary">
-              <span class="material-symbols-outlined text-3xl">mail</span>
-            </div>
-            <div>
-              <h3 class="serif-display text-2xl italic text-on-surface mb-2">Contact Direct</h3>
-              <a href={`mailto:${site.email}`} class="text-on-surface-variant hover:text-primary transition-colors text-lg">{site.email}</a>
-            </div>
+          <div>
+            <h4 class="serif-display italic text-xl text-primary mb-4">Direct</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed tracking-wider font-light">
+              <a href={`mailto:${site.email}`} class="hover:text-primary transition-colors">{site.email}</a>
+            </p>
           </div>
         </div>
 
-        <!-- Map -->
-        <div class="relative group">
-          <div class="absolute inset-0 bg-primary/5 rounded-[2.5rem] transform translate-x-4 translate-y-4 -z-10 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
-          <div class="w-full h-80 rounded-[2rem] overflow-hidden shadow-sm">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600!2d0.5478!3d48.5206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s44+rue+Montcacune+Mortagne-au-Perche!5e0!3m2!1sfr!2sfr!4v1"
-              width="100%"
-              height="100%"
-              style="border:0"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Carte — Au Pour Quoi Pas, 44 rue Montcacune, Mortagne-au-Perche"
-            ></iframe>
+        <!-- Schedule -->
+        <div class="mt-12 border-t border-primary/10 pt-12">
+          <h4 class="serif-display italic text-xl text-primary mb-4">Nos Rendez-vous</h4>
+          <ul class="text-on-surface-variant space-y-1 text-sm">
+            {site.schedule.map((s) => (
+              <li><span class="font-medium text-secondary">{s.day} :</span> {s.time}{s.note ? ` (${s.note})` : ''}</li>
+            ))}
+          </ul>
+          <p class="text-secondary text-xs italic mt-2">Uniquement sur réservation</p>
+        </div>
+      </div>
+
+      <!-- Right Column: Full-height image/map (sticky) -->
+      <div class="hidden lg:block relative sticky top-0 h-screen overflow-hidden bg-primary/5">
+        <div class="absolute inset-0 z-0">
+          <img
+            class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply"
+            alt="Vue artistique de Mortagne-au-Perche"
+            src="/images/lieu/contact-map.webp"
+            width="800"
+            height="1200"
+            loading="lazy"
+          />
+        </div>
+        <!-- Artistic overlays -->
+        <div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-primary/5 mix-blend-overlay z-10"></div>
+        <div class="absolute bottom-20 left-20 z-20 max-w-sm">
+          <div class="bg-surface/80 backdrop-blur-md p-10 border border-white/20 shadow-2xl">
+            <span class="material-symbols-outlined text-primary text-4xl mb-6 block">explore</span>
+            <h3 class="serif-display italic text-3xl text-on-surface mb-4">Lieu de ressourcement</h3>
+            <p class="text-on-surface-variant text-base leading-relaxed font-light">
+              Niché au c&oelig;ur du Perche, notre atelier a été conçu comme un sanctuaire de lumière et de silence.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+
     </div>
+
+    <!-- Dark inspirational quote section -->
+    <section class="bg-tertiary py-32 px-8 text-center relative overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 opacity-5 pointer-events-none">
+        <span class="material-symbols-outlined text-[40rem]">spa</span>
+      </div>
+      <div class="max-w-4xl mx-auto relative z-10">
+        <span class="material-symbols-outlined text-primary-fixed-dim text-6xl mb-12 block">all_inclusive</span>
+        <p class="serif-display text-4xl md:text-6xl text-surface italic font-light leading-snug mb-16">
+          &ldquo;La sérénité n'est pas l'absence d'orage, mais le calme à l'intérieur de soi.&rdquo;
+        </p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <span class="px-8 py-3 rounded-full border border-primary-fixed-dim/20 text-primary-fixed-dim text-xs uppercase tracking-[0.3em] font-[Inter]">Expérience Intimiste</span>
+          <span class="px-8 py-3 rounded-full border border-primary-fixed-dim/20 text-primary-fixed-dim text-xs uppercase tracking-[0.3em] font-[Inter]">Accompagnement Dédié</span>
+          <span class="px-8 py-3 rounded-full border border-primary-fixed-dim/20 text-primary-fixed-dim text-xs uppercase tracking-[0.3em] font-[Inter]">Cadre Préservé</span>
+        </div>
+      </div>
+    </section>
 
     <!-- Group Info Banner -->
-    <div class="mt-32 p-12 bg-secondary-container rounded-[3rem] text-center border border-secondary/10">
-      <span class="material-symbols-outlined text-5xl text-secondary mb-6 block">group</span>
-      <p class="serif-display text-3xl md:text-4xl text-on-secondary-container italic font-light max-w-2xl mx-auto leading-snug">
-        Groupes limités à 8 personnes — réservez votre place pour une expérience privilégiée.
-      </p>
-      <div class="mt-8 flex justify-center gap-4 flex-wrap">
-        <span class="inline-block px-6 py-2 rounded-full border border-on-secondary-container/20 text-on-secondary-container text-sm uppercase tracking-widest font-[Inter]">Intimité</span>
-        <span class="inline-block px-6 py-2 rounded-full border border-on-secondary-container/20 text-on-secondary-container text-sm uppercase tracking-widest font-[Inter]">Écoute</span>
-        <span class="inline-block px-6 py-2 rounded-full border border-on-secondary-container/20 text-on-secondary-container text-sm uppercase tracking-widest font-[Inter]">Sérénité</span>
+    <div class="max-w-screen-xl mx-auto px-8 py-32">
+      <div class="p-12 bg-secondary-container/30 rounded-[3rem] text-center border border-secondary/10 reveal">
+        <span class="material-symbols-outlined text-5xl text-secondary mb-6 block">group</span>
+        <p class="serif-display text-3xl md:text-4xl text-on-surface italic font-light max-w-2xl mx-auto leading-snug">
+          Groupes limités à 8 personnes &mdash; réservez votre place pour une expérience privilégiée.
+        </p>
       </div>
     </div>
+
   </div>
 
 </BaseLayout>

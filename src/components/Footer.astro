@@ -2,29 +2,31 @@
 import { site } from '../data/site';
 ---
 
-<footer class="w-full pt-20 pb-12 bg-surface-container">
-  <div class="flex flex-col items-center gap-8 px-12 text-center max-w-screen-xl mx-auto">
-    <a href="/" class="font-[Newsreader] text-xl italic text-primary">AU POUR QUOI PAS</a>
+<footer class="py-24 border-t border-primary/5">
+  <div class="container mx-auto px-8 flex flex-col items-center gap-12">
+    <a class="serif-display text-2xl tracking-[0.3em] text-primary" href="/">AU POUR QUOI PAS</a>
 
-    <nav class="flex flex-wrap justify-center gap-x-12 gap-y-4">
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-sm tracking-widest uppercase" href="/ateliers-respiration-coherence-cardiaque/">Ateliers</a>
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-sm tracking-widest uppercase" href="/tarifs/">Tarifs</a>
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-sm tracking-widest uppercase" href="/a-propos/">À Propos</a>
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-sm tracking-widest uppercase" href="/contact/">Contact</a>
+    <nav class="flex flex-wrap justify-center gap-x-16 gap-y-4">
+      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/ateliers-respiration-coherence-cardiaque/">Ateliers</a>
+      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/tarifs/">Tarifs</a>
+      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/a-propos/">À Propos</a>
+      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/contact/">Contact</a>
     </nav>
 
-    <div class="text-on-surface-variant/60 text-sm space-y-1">
+    <div class="text-on-surface-variant/50 text-[10px] tracking-[0.3em] uppercase text-center space-y-1">
       <p>{site.address.street}, {site.address.postalCode} {site.address.city}</p>
       <p><a href={`mailto:${site.email}`} class="hover:text-primary transition-colors">{site.email}</a></p>
     </div>
 
-    <nav class="flex flex-wrap justify-center gap-8 pt-4 border-t border-primary/10 w-full">
-      <a class="text-on-surface/40 hover:text-primary transition-colors duration-300 font-[Inter] text-xs tracking-widest uppercase" href="/mentions-legales/">Mentions Légales</a>
-      <a class="text-on-surface/40 hover:text-primary transition-colors duration-300 font-[Inter] text-xs tracking-widest uppercase" href="/mentions-legales/">Politique de Confidentialité</a>
+    <div class="w-full max-w-md h-px bg-outline-variant/20"></div>
+
+    <nav class="flex flex-wrap justify-center gap-x-16 gap-y-4">
+      <a class="text-on-surface/30 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/mentions-legales/">Mentions Légales</a>
+      <a class="text-on-surface/30 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/mentions-legales/">Confidentialité</a>
     </nav>
 
-    <p class="text-xs tracking-widest uppercase text-on-surface-variant/40">
-      © {new Date().getFullYear()} AU POUR QUOI PAS — Sérénité & Cohérence
+    <p class="text-[10px] tracking-[0.4em] uppercase text-on-surface-variant/30">
+      &copy; 2026 AU POUR QUOI PAS &mdash; Sanctuaire de Sérénité &amp; Cohérence
     </p>
   </div>
 </footer>

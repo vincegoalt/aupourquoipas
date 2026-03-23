@@ -34,163 +34,165 @@ const schema = {
   schema={schema}
 >
 
-  <!-- Breadcrumb -->
-  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
-    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
-      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
-      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
-      <li><span class="text-primary/80">Tarifs</span></li>
-    </ol>
-  </nav>
+  <!-- Decorative Background -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-secondary-container/20 organic-blob animate-breathe opacity-40"></div>
+    <div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-primary-fixed/10 organic-blob animate-float opacity-30" style="animation-delay: -2s;"></div>
+    <div class="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] bg-surface-container-highest/40 organic-blob animate-float opacity-50" style="animation-delay: -5s;"></div>
+  </div>
 
-  <!-- Hero -->
-  <header class="max-w-screen-xl mx-auto px-6 md:px-12 mb-24 text-center py-16">
-    <span class="text-secondary font-[Inter] text-sm tracking-[0.3em] uppercase mb-4 block">Investir en soi</span>
-    <h1 class="serif-display text-6xl md:text-8xl text-primary leading-tight mb-8">Tarifs & Accompagnements</h1>
-    <p class="max-w-2xl mx-auto text-on-surface-variant text-lg leading-relaxed font-light">
-      Chaque séance est une invitation au ralentissement. Découvrez nos différentes formules conçues pour s'adapter à votre rythme et à vos besoins de sérénité.
-    </p>
-  </header>
+  <div class="relative z-10 pt-48 pb-40">
 
-  <!-- Pricing Grid -->
-  <section class="max-w-screen-2xl mx-auto px-6 md:px-12 mb-32">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <!-- Breadcrumb -->
+    <nav class="max-w-screen-xl mx-auto px-8 mb-12">
+      <ol class="flex gap-4 items-center text-[10px] font-[Inter] tracking-[0.3em] uppercase text-on-surface-variant/40">
+        <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
+        <li><span class="material-symbols-outlined text-[10px]">chevron_right</span></li>
+        <li><span class="text-primary/70">Tarifs</span></li>
+      </ol>
+    </nav>
 
-      <!-- Card 1: Ateliers Respiration -->
-      <div class="group flex flex-col bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0_10px_40px_rgba(130,59,24,0.05)] border-t-4 border-primary/20 hover:border-primary transition-all duration-500">
-        <h3 class="serif-display text-3xl italic text-primary mb-4">Ateliers Respiration</h3>
-        <p class="text-on-surface-variant font-light mb-8 leading-relaxed">Retrouvez votre souffle vital à travers des techniques guidées de cohérence cardiaque et de respiration consciente.</p>
-        <div class="space-y-4 mb-10 flex-grow">
-          <div class="flex justify-between items-baseline pb-4 border-b border-outline-variant/15">
-            <span class="font-[Inter] text-sm uppercase tracking-wider text-secondary">Initiation Groupe</span>
-            <span class="serif-display italic text-2xl">30€</span>
-          </div>
-          <div class="flex justify-between items-baseline pb-4 border-b border-outline-variant/15">
-            <span class="font-[Inter] text-sm uppercase tracking-wider text-secondary">Individuel</span>
-            <span class="serif-display italic text-2xl">70€</span>
-          </div>
-          <div class="flex justify-between items-baseline pb-4 border-b border-outline-variant/15">
-            <span class="font-[Inter] text-sm uppercase tracking-wider text-secondary">Forfait 5 séances</span>
-            <span class="serif-display italic text-2xl">80€</span>
-          </div>
-          <div class="flex justify-between items-baseline">
-            <span class="font-[Inter] text-sm uppercase tracking-wider text-secondary font-semibold">Forfait 10 séances</span>
-            <span class="serif-display italic text-2xl">140€</span>
-          </div>
-        </div>
-        <a href="/contact/" class="block w-full py-4 bg-surface-container-high text-primary font-[Inter] text-sm tracking-widest uppercase rounded-full hover:bg-primary hover:text-on-primary transition-all duration-300 text-center">
-          Réserver
-        </a>
-      </div>
+    <!-- Hero -->
+    <header class="max-w-screen-xl mx-auto px-8 mb-40 text-center">
+      <span class="text-secondary font-[Inter] text-xs tracking-[0.4em] uppercase mb-8 block opacity-80">L'art de l'investissement intérieur</span>
+      <h1 class="serif-display italic text-7xl md:text-9xl text-primary leading-[0.9] mb-12 tracking-tight">
+        Tarifs <span class="block mt-4">& Accompagnements</span>
+      </h1>
+      <div class="w-24 h-px bg-outline-variant/30 mx-auto mb-12"></div>
+      <p class="max-w-xl mx-auto text-on-surface-variant/80 text-xl leading-relaxed font-light serif-display italic">
+        Chaque séance est une invitation au ralentissement, un espace sacré conçu pour s'adapter à votre propre rythme.
+      </p>
+    </header>
 
-      <!-- Card 2: Ateliers Thématiques -->
-      <div class="group flex flex-col bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0_10px_40px_rgba(130,59,24,0.05)] border-t-4 border-primary/20 hover:border-primary transition-all duration-500">
-        <h3 class="serif-display text-3xl italic text-primary mb-4">Ateliers Thématiques</h3>
-        <p class="text-on-surface-variant font-light mb-8 leading-relaxed">Des sessions immersives de 2 heures dédiées à une thématique saisonnière pour approfondir votre bien-être.</p>
-        <div class="mb-10 flex-grow flex items-center justify-center py-12 bg-surface-container-low rounded-[1.5rem]">
-          <div class="text-center">
-            <span class="block font-[Inter] text-sm uppercase tracking-widest text-secondary mb-2">Session de 2h</span>
-            <span class="serif-display italic text-6xl text-primary">55€</span>
-          </div>
-        </div>
-        <a href="/contact/" class="block w-full py-4 bg-surface-container-high text-primary font-[Inter] text-sm tracking-widest uppercase rounded-full hover:bg-primary hover:text-on-primary transition-all duration-300 text-center">
-          Réserver
-        </a>
-      </div>
+    <!-- Asymmetrical Pricing Grid -->
+    <section class="max-w-screen-2xl mx-auto px-8 md:px-16">
+      <div class="grid grid-cols-12 gap-y-32 gap-x-8">
 
-      <!-- Card 3: Soins Énergétiques -->
-      <div class="group flex flex-col bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0_10px_40px_rgba(130,59,24,0.05)] border-t-4 border-primary/20 hover:border-primary transition-all duration-500">
-        <h3 class="serif-display text-3xl italic text-primary mb-4">Soins Énergétiques</h3>
-        <p class="text-on-surface-variant font-light mb-8 leading-relaxed">Un rééquilibrage profond pour libérer les tensions accumulées et restaurer votre vitalité naturelle.</p>
-        <div class="mb-10 flex-grow flex items-center justify-center py-12 bg-surface-container-low rounded-[1.5rem]">
-          <div class="text-center">
-            <span class="block font-[Inter] text-sm uppercase tracking-widest text-secondary mb-2">La séance</span>
-            <span class="serif-display italic text-6xl text-primary">65€</span>
+        <!-- Card 1: Ateliers Respiration (Left offset) -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-1 reveal reveal-up">
+          <div class="glass-card rounded-3xl p-12 md:p-16 editorial-shadow transition-all duration-700 hover:-translate-y-2">
+            <h3 class="serif-display text-4xl italic text-primary mb-8">Ateliers Respiration</h3>
+            <p class="text-on-surface-variant font-light mb-16 leading-relaxed text-lg italic">Le souffle comme point d'ancrage. Cohérence cardiaque et respiration consciente guidée.</p>
+            <div class="space-y-10 mb-20">
+              <div class="flex justify-between items-end border-b border-outline-variant/20 pb-6 group">
+                <span class="font-[Inter] text-xs tracking-[0.2em] uppercase text-secondary/70">Initiation Groupe</span>
+                <span class="serif-display italic text-4xl text-primary/90 group-hover:scale-110 transition-transform duration-500">30€</span>
+              </div>
+              <div class="flex justify-between items-end border-b border-outline-variant/20 pb-6 group">
+                <span class="font-[Inter] text-xs tracking-[0.2em] uppercase text-secondary/70">Individuel</span>
+                <span class="serif-display italic text-4xl text-primary/90 group-hover:scale-110 transition-transform duration-500">70€</span>
+              </div>
+              <div class="flex justify-between items-end border-b border-outline-variant/20 pb-6 group">
+                <span class="font-[Inter] text-xs tracking-[0.2em] uppercase text-secondary/70">Forfait 5 séances</span>
+                <span class="serif-display italic text-4xl text-primary/90 group-hover:scale-110 transition-transform duration-500">80€</span>
+              </div>
+              <div class="flex justify-between items-end pb-2 group">
+                <span class="font-[Inter] text-xs tracking-[0.2em] uppercase text-secondary font-semibold">Forfait 10 séances</span>
+                <span class="serif-display italic text-5xl text-primary group-hover:scale-110 transition-transform duration-500">140€</span>
+              </div>
+            </div>
+            <a href="/contact/" class="block w-full py-5 border border-primary/20 text-primary font-[Inter] text-xs tracking-[0.3em] uppercase rounded-full hover:bg-primary hover:text-on-primary transition-all duration-700 text-center">
+              Réserver l'expérience
+            </a>
           </div>
         </div>
-        <a href="/contact/" class="block w-full py-4 bg-surface-container-high text-primary font-[Inter] text-sm tracking-widest uppercase rounded-full hover:bg-primary hover:text-on-primary transition-all duration-300 text-center">
-          Réserver
-        </a>
-      </div>
 
-      <!-- Card 4: Réflexologie Plantaire -->
-      <div class="group flex flex-col bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0_10px_40px_rgba(130,59,24,0.05)] border-t-4 border-primary/20 hover:border-primary transition-all duration-500">
-        <h3 class="serif-display text-3xl italic text-primary mb-4">Réflexologie Plantaire</h3>
-        <p class="text-on-surface-variant font-light mb-8 leading-relaxed">Une approche holistique par les pieds pour apaiser l'esprit et harmoniser les fonctions de l'organisme.</p>
-        <div class="mb-10 flex-grow flex items-center justify-center py-12 bg-surface-container-low rounded-[1.5rem]">
-          <div class="text-center">
-            <span class="block font-[Inter] text-sm uppercase tracking-widest text-secondary mb-2">La séance</span>
-            <span class="serif-display italic text-6xl text-primary">65€</span>
+        <!-- Card 2: Ateliers Thématiques (Right offset, up) -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 lg:-mt-24 reveal reveal-up">
+          <div class="glass-card rounded-3xl p-12 md:p-16 editorial-shadow transition-all duration-700 hover:-translate-y-2">
+            <div class="mb-12 aspect-square w-full bg-surface-container-low/50 organic-blob flex items-center justify-center overflow-hidden">
+              <div class="text-center">
+                <span class="block font-[Inter] text-xs tracking-[0.3em] text-secondary/60 mb-6 uppercase">Session immersive 2h</span>
+                <span class="serif-display italic text-9xl text-primary opacity-90">55€</span>
+              </div>
+            </div>
+            <h3 class="serif-display text-4xl italic text-primary mb-6">Ateliers Thématiques</h3>
+            <p class="text-on-surface-variant font-light mb-12 leading-relaxed text-lg italic">Des rendez-vous saisonniers pour approfondir l'harmonie entre le corps et l'esprit.</p>
+            <a href="/contact/" class="block w-full py-5 bg-surface-container-high/60 text-primary font-[Inter] text-xs tracking-[0.3em] uppercase rounded-full hover:bg-primary hover:text-on-primary transition-all duration-700 text-center">
+              Choisir une date
+            </a>
           </div>
         </div>
-        <a href="/contact/" class="block w-full py-4 bg-surface-container-high text-primary font-[Inter] text-sm tracking-widest uppercase rounded-full hover:bg-primary hover:text-on-primary transition-all duration-300 text-center">
-          Réserver
-        </a>
-      </div>
 
-      <!-- Card 5: Accompagnement Personnel (spans 2 cols on lg) -->
-      <div class="group flex flex-col bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0_10px_40px_rgba(130,59,24,0.05)] border-t-4 border-primary/20 hover:border-primary transition-all duration-500 lg:col-span-2">
-        <div class="flex flex-col md:flex-row gap-12 h-full">
-          <div class="md:w-1/2 flex flex-col justify-center">
-            <h3 class="serif-display text-3xl italic text-primary mb-4">Accompagnement Personnel</h3>
-            <p class="text-on-surface-variant font-light mb-8 leading-relaxed">Un parcours sur-mesure combinant nos différentes approches pour répondre à vos objectifs de transformation profonde et durable.</p>
-            <div class="flex items-center gap-4 text-secondary">
-              <span class="material-symbols-outlined">verified</span>
-              <span class="text-sm font-[Inter] uppercase tracking-widest">Suivi personnalisé inclus</span>
+        <!-- Cards 3 & 4: Soins & Réflexologie (Center) -->
+        <div class="col-span-12 lg:col-span-10 lg:col-start-2 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+          <!-- Soins Énergétiques -->
+          <div class="group flex flex-col items-center text-center p-12 glass-card rounded-3xl editorial-shadow hover:-translate-y-2 transition-transform duration-700 reveal reveal-up">
+            <span class="serif-display italic text-8xl text-primary/20 mb-4">65€</span>
+            <h3 class="serif-display text-3xl italic text-primary mb-6">Soins Énergétiques</h3>
+            <p class="text-on-surface-variant font-light mb-12 italic">Libération des tensions et restauration de la vitalité naturelle profonde.</p>
+            <a href="/contact/" class="px-12 py-4 border border-outline-variant/30 text-secondary font-[Inter] text-[10px] tracking-[0.4em] uppercase rounded-full hover:border-primary hover:text-primary transition-all duration-500 text-center">
+              Réserver
+            </a>
+          </div>
+          <!-- Réflexologie -->
+          <div class="group flex flex-col items-center text-center p-12 glass-card rounded-3xl editorial-shadow hover:-translate-y-2 transition-transform duration-700 reveal reveal-up">
+            <span class="serif-display italic text-8xl text-primary/20 mb-4">65€</span>
+            <h3 class="serif-display text-3xl italic text-primary mb-6">Réflexologie Plantaire</h3>
+            <p class="text-on-surface-variant font-light mb-12 italic">Une approche holistique pour apaiser l'esprit par les points réflexes.</p>
+            <a href="/contact/" class="px-12 py-4 border border-outline-variant/30 text-secondary font-[Inter] text-[10px] tracking-[0.4em] uppercase rounded-full hover:border-primary hover:text-primary transition-all duration-500 text-center">
+              Réserver
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: Accompagnement Personnel (Wide hero-style) -->
+        <div class="col-span-12 mt-20 reveal reveal-up">
+          <div class="relative overflow-hidden glass-card rounded-[3rem] p-12 md:p-24 editorial-shadow border border-primary/5">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-secondary-container/10 -skew-x-12 translate-x-1/4 pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
+              <div class="lg:w-3/5">
+                <span class="text-secondary font-[Inter] text-xs tracking-[0.4em] uppercase mb-8 block">Sur-mesure</span>
+                <h3 class="serif-display text-5xl md:text-7xl italic text-primary mb-10 leading-tight">Accompagnement Personnel</h3>
+                <p class="text-on-surface-variant text-xl font-light italic leading-relaxed mb-12">Un parcours de transformation durable, fusionnant nos expertises pour répondre à vos objectifs de sérénité profonde.</p>
+                <div class="flex items-center gap-6 text-secondary/60">
+                  <span class="material-symbols-outlined text-3xl">verified</span>
+                  <span class="text-xs font-[Inter] uppercase tracking-[0.3em]">Suivi personnalisé inclus</span>
+                </div>
+              </div>
+              <div class="lg:w-2/5 w-full">
+                <div class="p-12 bg-white/40 rounded-3xl text-center border border-white/60 backdrop-blur-sm">
+                  <span class="block serif-display italic text-6xl text-primary mb-12">Sur devis</span>
+                  <a href="/contact/" class="block w-full py-6 bg-primary text-on-primary font-[Inter] text-xs tracking-[0.4em] uppercase rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 text-center">
+                    Demander un devis
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="md:w-1/2 flex flex-col justify-center bg-secondary-container/30 rounded-[1.5rem] p-8 text-center border border-secondary/10">
-            <span class="block font-[Inter] text-sm uppercase tracking-[0.2em] text-secondary mb-4">Tarification</span>
-            <span class="serif-display italic text-4xl text-primary mb-8 block">Sur devis</span>
-            <a href="/contact/" class="block w-full py-4 bg-primary text-on-primary font-[Inter] text-sm tracking-widest uppercase rounded-full hover:opacity-90 transition-all duration-300 text-center">
-              Demander un devis
-            </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Essential Oil / Group Info Section -->
+    <section class="max-w-screen-xl mx-auto px-8 mt-64">
+      <div class="flex flex-col md:flex-row items-center gap-32">
+        <div class="w-full md:w-1/2 relative reveal">
+          <div class="absolute -inset-4 border border-primary/10 rounded-2xl rotate-3 pointer-events-none"></div>
+          <div class="aspect-[4/5] overflow-hidden rounded-2xl editorial-shadow">
+            <img class="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-[2000ms]" alt="Huiles essentielles et ambiance sereine" src="/images/tarifs/essential-oil.webp" width="500" height="625" loading="lazy" />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 reveal reveal-up">
+          <h2 class="serif-display italic text-5xl md:text-6xl text-primary mb-12 leading-tight">L'Expérience en Groupe</h2>
+          <div class="space-y-10 text-on-surface-variant text-xl font-light italic leading-relaxed">
+            <p class="relative">
+              <span class="absolute -left-8 top-0 text-primary/20 text-6xl serif-display">&ldquo;</span>
+              Afin de préserver la qualité de l'écoute et l'intimité nécessaire à chaque pratique, nos ateliers collectifs sont limités à <strong class="text-on-surface">8 personnes maximum</strong>.
+            </p>
+            <p>Une attention portée à l'individu au sein du collectif, garantissant une immersion totale.</p>
+            <div class="pt-12">
+              <span class="text-[10px] font-[Inter] uppercase tracking-[0.5em] text-secondary/60 mb-6 block">Conversations & Réservations</span>
+              <a class="group text-3xl serif-display italic text-primary inline-flex items-center gap-4 transition-all duration-500" href={`mailto:${site.email}`}>
+                <span>{site.email}</span>
+                <span class="material-symbols-outlined group-hover:translate-x-3 transition-transform duration-500">east</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Group Info Section -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
-    <div class="flex flex-col md:flex-row items-center gap-20">
-      <div class="w-full md:w-5/12 aspect-[4/5] relative overflow-hidden rounded-[2rem] bg-surface-container-high">
-        <img
-          alt="Espace d'atelier lumineux et apaisant à Mortagne-au-Perche"
-          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          src="/images/atelier/espace-atelier.webp"
-          width="500"
-          height="625"
-          loading="lazy"
-        />
-      </div>
-      <div class="w-full md:w-7/12">
-        <h2 class="serif-display text-4xl italic text-primary mb-8">L'Expérience en Groupe</h2>
-        <div class="space-y-6 text-on-surface-variant text-lg font-light leading-relaxed">
-          <p>Afin de préserver la qualité de l'écoute et l'intimité nécessaire à chaque pratique, nos ateliers collectifs sont limités à des <strong class="text-on-surface">groupes de 6 à 8 personnes maximum</strong>.</p>
-          <p>Cette approche nous permet de porter une attention particulière à chacun, garantissant une progression sereine et une immersion totale dans la pratique.</p>
-          <div class="pt-8 flex flex-col gap-4">
-            <span class="text-sm font-[Inter] uppercase tracking-widest text-secondary">Pour toute question ou réservation :</span>
-            <a class="serif-display text-2xl italic text-primary hover:translate-x-2 transition-transform inline-block w-fit" href={`mailto:${site.email}`}>
-              {site.email}
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="mx-6 md:mx-12 mb-24 bg-primary-container text-on-primary-container rounded-[4rem] p-12 md:p-32 overflow-hidden relative text-center">
-    <div class="relative z-10">
-      <h2 class="serif-display text-5xl md:text-7xl mb-10 italic">Prêt(e) à investir en vous ?</h2>
-      <p class="text-xl opacity-80 mb-12 max-w-xl mx-auto font-[Newsreader] italic">
-        Choisissez la formule qui vous convient et commencez votre chemin vers la sérénité.
-      </p>
-      <a href="/contact/" class="inline-block px-12 py-6 bg-surface text-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:bg-surface-container-lowest transition-colors shadow-2xl">
-        Réserver votre première séance
-      </a>
-    </div>
-  </section>
+  </div>
 
 </BaseLayout>
