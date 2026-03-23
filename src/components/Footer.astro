@@ -2,31 +2,60 @@
 import { site } from '../data/site';
 ---
 
-<footer class="py-24 border-t border-primary/5">
-  <div class="container mx-auto px-8 flex flex-col items-center gap-12">
-    <a class="serif-display text-2xl tracking-[0.3em] text-primary" href="/">AU POUR QUOI PAS</a>
+<footer class="py-20 bg-surface-container">
+  <div class="container mx-auto px-8 max-w-screen-xl">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <!-- Col 1: Brand -->
+      <div>
+        <a class="serif-display text-2xl tracking-[0.2em] text-primary block mb-4" href="/">AU POUR QUOI PAS</a>
+        <p class="text-on-surface-variant/60 text-sm font-light leading-relaxed">Espace d'ateliers pour réguler le stress et retrouver un équilibre grâce au souffle.</p>
+      </div>
 
-    <nav class="flex flex-wrap justify-center gap-x-16 gap-y-4">
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/ateliers-respiration-coherence-cardiaque/">Ateliers</a>
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/tarifs/">Tarifs</a>
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/a-propos/">À Propos</a>
-      <a class="text-on-surface/50 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/contact/">Contact</a>
-    </nav>
+      <!-- Col 2: Navigation -->
+      <div>
+        <h4 class="text-[10px] tracking-[0.3em] uppercase font-bold text-on-surface/40 mb-6">Explorer</h4>
+        <nav class="flex flex-col gap-3">
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/ateliers-respiration-coherence-cardiaque/">Respiration & Cohérence</a>
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/ateliers-thematiques/">Ateliers Thématiques</a>
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/soins-energetiques/">Soins Énergétiques</a>
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/reflexologie-plantaire/">Réflexologie Plantaire</a>
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/tarifs/">Tarifs</a>
+        </nav>
+      </div>
 
-    <div class="text-on-surface-variant/50 text-[10px] tracking-[0.3em] uppercase text-center space-y-1">
-      <p>{site.address.street}, {site.address.postalCode} {site.address.city}</p>
-      <p><a href={`mailto:${site.email}`} class="hover:text-primary transition-colors">{site.email}</a></p>
+      <!-- Col 3: Informations -->
+      <div>
+        <h4 class="text-[10px] tracking-[0.3em] uppercase font-bold text-on-surface/40 mb-6">Informations</h4>
+        <nav class="flex flex-col gap-3">
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/a-propos/">À Propos</a>
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/contact/">Contact</a>
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/location-salle/">Location Salle</a>
+          <a class="text-on-surface/60 hover:text-primary transition-colors text-sm" href="/mentions-legales/">Mentions Légales</a>
+        </nav>
+      </div>
+
+      <!-- Col 4: Contact -->
+      <div>
+        <h4 class="text-[10px] tracking-[0.3em] uppercase font-bold text-on-surface/40 mb-6">Nous trouver</h4>
+        <div class="text-on-surface/60 text-sm space-y-3">
+          <p>{site.address.street}<br />{site.address.postalCode} {site.address.city}</p>
+          <p><a href={`mailto:${site.email}`} class="hover:text-primary transition-colors">{site.email}</a></p>
+          <div class="text-on-surface/40 text-xs space-y-1 pt-2">
+            <p>Jeudi : 18h00</p>
+            <p>Vendredi : 14h30 (1 sur 2)</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="w-full max-w-md h-px bg-outline-variant/20"></div>
-
-    <nav class="flex flex-wrap justify-center gap-x-16 gap-y-4">
-      <a class="text-on-surface/30 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/mentions-legales/">Mentions Légales</a>
-      <a class="text-on-surface/30 hover:text-primary transition-colors duration-300 font-[Inter] text-[10px] tracking-[0.4em] uppercase" href="/mentions-legales/">Confidentialité</a>
-    </nav>
-
-    <p class="text-[10px] tracking-[0.4em] uppercase text-on-surface-variant/30">
-      &copy; 2026 AU POUR QUOI PAS &mdash; Sanctuaire de Sérénité &amp; Cohérence
-    </p>
+    <!-- Bottom bar -->
+    <div class="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-[10px] tracking-[0.3em] uppercase text-on-surface-variant/30">
+        &copy; 2026 AU POUR QUOI PAS &mdash; Sérénité & Cohérence
+      </p>
+      <p class="text-[10px] tracking-[0.3em] uppercase text-on-surface-variant/30">
+        Mortagne-au-Perche, Normandie
+      </p>
+    </div>
   </div>
 </footer>
