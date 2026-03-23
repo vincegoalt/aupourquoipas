@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import '../styles/global.css';
@@ -37,11 +38,7 @@ const canonical = canonicalUrl || Astro.url.href;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300;1,6..72,400&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
     rel="stylesheet"
   />
 
@@ -52,36 +49,48 @@ const canonical = canonicalUrl || Astro.url.href;
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- View Transitions -->
+  <ClientRouter />
 </head>
-<body class="bg-surface text-on-surface overflow-x-hidden">
+<body class="bg-warm-white text-charcoal overflow-x-hidden">
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-px bg-terracotta z-[200] transition-none" style="width: 0%"></div>
+
   <Header />
   <main>
     <slot />
   </main>
   <Footer />
 
-  <!-- Scroll Reveal Script -->
   <script>
-    const initReveal = () => {
+    const init = () => {
+      // Scroll reveal
       const reveals = document.querySelectorAll('.reveal');
-      const handleScroll = () => {
-        reveals.forEach(el => {
-          const windowHeight = window.innerHeight;
-          const elementTop = el.getBoundingClientRect().top;
-          const elementVisible = 100;
-          if (elementTop < windowHeight - elementVisible) {
-            el.classList.add('active');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
           }
         });
-      };
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll();
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      reveals.forEach((el) => observer.observe(el));
+
+      // Scroll progress bar
+      const progressBar = document.getElementById('scroll-progress');
+      if (progressBar) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          progressBar.style.width = `${progress}%`;
+        }, { passive: true });
+      }
     };
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initReveal);
-    } else {
-      initReveal();
-    }
+
+    document.addEventListener('astro:page-load', init);
+    document.addEventListener('astro:after-swap', init);
   </script>
 </body>
 </html>

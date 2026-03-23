@@ -21,7 +21,7 @@ const schema = {
       "areaServed": { "@type": "City", "name": "Mortagne-au-Perche" },
       "offers": {
         "@type": "Offer",
-        "name": "Atelier thématique (2h)",
+        "name": "Atelier thematique (2h)",
         "price": "55",
         "priceCurrency": "EUR"
       }
@@ -41,24 +41,17 @@ const schema = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Accueil", "item": site.url },
-        { "@type": "ListItem", "position": 2, "name": "Ateliers", "item": `${site.url}/ateliers-thematiques/` },
-        { "@type": "ListItem", "position": 3, "name": service.shortName }
+        { "@type": "ListItem", "position": 2, "name": service.shortName }
       ]
     }
   ]
 };
 
 const themes = [
-  { icon: "spa", title: "Gestion du Stress", desc: "Apprenez à identifier vos déclencheurs de stress et à mettre en place des stratégies concrètes pour retrouver le calme au quotidien." },
-  { icon: "bolt", title: "Booster son Énergie", desc: "Découvrez comment relancer votre vitalité grâce à des exercices respiratoires, des huiles essentielles et des routines simples." },
-  { icon: "favorite", title: "Réguler ses Émotions", desc: "Comprenez le lien entre vos émotions et votre corps pour mieux les accueillir et les traverser en douceur." },
-  { icon: "visibility", title: "Clarté Mentale", desc: "Dispersez le brouillard cérébral grâce à des techniques de visualisation et de respiration ciblées." },
-];
-
-const tools = [
-  { icon: "local_florist", label: "Huiles essentielles", desc: "Découverte et utilisation d'huiles essentielles adaptées à chaque thématique." },
-  { icon: "self_improvement", label: "Exercices de détente", desc: "Techniques de relaxation corporelle et respiratoire à reproduire chez soi." },
-  { icon: "psychology", label: "Visualisation guidée", desc: "Exercices de visualisation pour ancrer les apprentissages et développer vos ressources intérieures." },
+  { title: "Gestion du Stress", desc: "Apprenez a identifier vos declencheurs de stress et a mettre en place des strategies concretes pour retrouver le calme." },
+  { title: "Booster son Energie", desc: "Decouvrez comment relancer votre vitalite grace a des exercices respiratoires, des huiles essentielles et des routines simples." },
+  { title: "Reguler ses Emotions", desc: "Comprenez le lien entre vos emotions et votre corps pour mieux les accueillir et les traverser en douceur." },
+  { title: "Clarte Mentale", desc: "Dispersez le brouillard cerebral grace a des techniques de visualisation et de respiration ciblees." },
 ];
 ---
 
@@ -68,143 +61,141 @@ const tools = [
   schema={schema}
 >
 
-  <!-- Breadcrumb -->
-  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
-    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
-      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
-      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
-      <li><a class="hover:text-primary transition-colors" href="/ateliers-thematiques/">Ateliers</a></li>
-      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
-      <li><span class="text-primary/80">{service.shortName}</span></li>
-    </ol>
-  </nav>
+  <div class="pt-32 lg:pt-40">
 
-  <!-- Hero -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-20">
-    <div class="space-y-8">
-      <h1 class="serif-display text-6xl md:text-8xl leading-tight text-primary font-light">{service.heroHeading}</h1>
-      <p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-xl">
-        {service.heroSubtitle}
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <span class="px-4 py-2 bg-surface-container rounded-full text-sm font-[Inter] uppercase tracking-widest text-primary">2h par atelier</span>
-        <span class="px-4 py-2 bg-surface-container rounded-full text-sm font-[Inter] uppercase tracking-widest text-primary">6-8 personnes max</span>
-        <span class="px-4 py-2 bg-surface-container rounded-full text-sm font-[Inter] uppercase tracking-widest text-primary">Trimestriel</span>
+    <!-- Breadcrumb -->
+    <nav class="max-w-[1200px] mx-auto px-6 lg:px-24 mb-12">
+      <ol class="flex gap-3 items-center text-[10px] font-sans tracking-[0.2em] uppercase text-charcoal/30">
+        <li><a class="hover:text-terracotta transition-colors" href="/">Accueil</a></li>
+        <li>&mdash;</li>
+        <li><span class="text-charcoal/50">{service.shortName}</span></li>
+      </ol>
+    </nav>
+
+    <!-- Hero -->
+    <section class="max-w-[1200px] mx-auto px-6 lg:px-24 pb-32 lg:pb-48 border-b border-charcoal/5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-7 reveal">
+          <h1 class="font-editorial text-[clamp(2.5rem,4vw,5rem)] text-charcoal leading-[1.1] mb-8 font-light">
+            {service.heroHeading}
+          </h1>
+          <p class="text-charcoal/60 text-lg leading-relaxed max-w-xl font-light mb-6">
+            {service.heroSubtitle}
+          </p>
+          <div class="flex flex-wrap gap-4 mb-8">
+            <span class="text-sage text-[10px] tracking-[0.2em] uppercase">2h par atelier</span>
+            <span class="text-sage text-[10px] tracking-[0.2em] uppercase">&middot; 6-8 personnes</span>
+            <span class="text-sage text-[10px] tracking-[0.2em] uppercase">&middot; Trimestriel</span>
+          </div>
+          <a href="/contact/" class="text-terracotta hover:text-terracotta/70 transition-colors duration-300 link-underline text-base">
+            Reserver un atelier &rarr;
+          </a>
+        </div>
+        <div class="lg:col-span-5 reveal">
+          <img
+            alt="Atelier thematique bien-etre en groupe"
+            class="w-full aspect-[3/4] object-cover rounded-2xl img-editorial"
+            src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=1200&q=80"
+            width="600"
+            height="800"
+            loading="eager"
+          />
+        </div>
       </div>
-      <div class="pt-4">
-        <a href="/contact/" class="inline-block px-10 py-5 bg-primary text-on-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/10">
-          Réserver un atelier
+    </section>
+
+    <!-- Themes -->
+    <section class="py-32 lg:py-48 bg-warm-gray">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
+        <h2 class="font-editorial text-3xl lg:text-4xl mb-16 font-light reveal">Les thematiques</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+          {themes.map((theme) => (
+            <div class="reveal">
+              <h3 class="font-editorial text-2xl mb-4">{theme.title}</h3>
+              <p class="text-charcoal/50 font-light leading-relaxed">{theme.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="py-32 lg:py-48 bg-warm-white">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
+        <h2 class="font-editorial text-3xl lg:text-4xl mb-16 font-light reveal">Les outils que vous repartez avec</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+          {[
+            { title: "Huiles essentielles", desc: "Decouverte et utilisation d'huiles essentielles adaptees a chaque thematique." },
+            { title: "Exercices de detente", desc: "Techniques de relaxation corporelle et respiratoire a reproduire chez soi." },
+            { title: "Visualisation guidee", desc: "Exercices de visualisation pour ancrer les apprentissages et developper vos ressources interieures." },
+          ].map((tool) => (
+            <div class="reveal">
+              <h3 class="font-editorial text-xl mb-3">{tool.title}</h3>
+              <p class="text-charcoal/50 font-light text-sm leading-relaxed">{tool.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-32 lg:py-48 bg-warm-gray">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
+        <h2 class="font-editorial text-3xl lg:text-4xl mb-12 font-light reveal">Tarif</h2>
+        <div class="border-t border-charcoal/5 reveal">
+          <div class="flex justify-between items-baseline py-8">
+            <div>
+              <span class="text-charcoal text-lg font-light block">Atelier thematique</span>
+              <span class="text-charcoal/40 text-sm">2h &middot; 6-8 personnes</span>
+            </div>
+            <span class="font-editorial text-3xl">55&euro;</span>
+          </div>
+        </div>
+        <a href="/contact/" class="mt-6 inline-block text-terracotta hover:text-terracotta/70 transition-colors link-underline">Reserver &rarr;</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-32 lg:py-48 bg-warm-white">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
+        <h2 class="font-editorial text-3xl lg:text-4xl mb-16 font-light reveal">Questions frequentes</h2>
+        <div class="max-w-3xl reveal">
+          <FAQAccordion faqs={service.faqs} />
+        </div>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="py-32 lg:py-48 bg-warm-gray">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-24">
+        <h2 class="font-editorial text-3xl mb-12 font-light reveal">Explorer d'autres soins</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+          <a class="group py-6 border-t border-charcoal/5" href="/ateliers-respiration-coherence-cardiaque/">
+            <h3 class="font-editorial text-xl mb-2 group-hover:text-terracotta transition-colors">Respiration & Coherence</h3>
+            <span class="text-terracotta text-sm">Decouvrir &rarr;</span>
+          </a>
+          <a class="group py-6 border-t border-charcoal/5" href="/soins-energetiques/">
+            <h3 class="font-editorial text-xl mb-2 group-hover:text-terracotta transition-colors">Soins Energetiques</h3>
+            <span class="text-terracotta text-sm">Decouvrir &rarr;</span>
+          </a>
+          <a class="group py-6 border-t border-charcoal/5" href="/accompagnement-personnel/">
+            <h3 class="font-editorial text-xl mb-2 group-hover:text-terracotta transition-colors">Accompagnement Personnel</h3>
+            <span class="text-terracotta text-sm">Decouvrir &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-32 lg:py-48 bg-warm-white">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-24 text-center reveal">
+        <h2 class="font-editorial text-4xl lg:text-5xl mb-10 font-light">Envie de decouvrir un theme ?</h2>
+        <a href="/contact/" class="inline-block px-10 py-4 border border-terracotta text-terracotta rounded-full font-sans text-[11px] tracking-[0.2em] uppercase hover:bg-terracotta hover:text-white transition-all duration-300">
+          S'inscrire au prochain atelier
         </a>
       </div>
-    </div>
-    <div class="relative group">
-      <div class="absolute inset-0 bg-secondary/5 rounded-[4rem] -rotate-3 scale-105 group-hover:rotate-0 transition-transform duration-700"></div>
-      <img
-        alt="Atelier thématique bien-être en groupe dans un espace chaleureux"
-        class="relative w-full aspect-[4/5] object-cover rounded-[3.5rem] shadow-2xl"
-        src="/images/services/ateliers-thematiques.webp"
-        width="600"
-        height="750"
-        loading="eager"
-      />
-    </div>
-  </section>
+    </section>
 
-  <!-- Themes -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
-    <div class="text-center mb-20">
-      <h2 class="serif-display text-5xl mb-4">Les Thématiques</h2>
-      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Chaque trimestre, explorez un thème différent pour approfondir votre connaissance de soi et repartir avec des outils concrets.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {themes.map((theme) => (
-        <div class="bg-surface-container-low p-10 rounded-[2.5rem] group hover:bg-surface-container-high transition-colors duration-500">
-          <span class="material-symbols-outlined text-4xl text-primary mb-6 block">{theme.icon}</span>
-          <h3 class="serif-display text-3xl mb-4">{theme.title}</h3>
-          <p class="text-on-surface-variant leading-relaxed">{theme.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Tools Taught -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
-    <div class="text-center mb-20">
-      <h2 class="serif-display text-5xl mb-4">Les Outils que Vous Repartez Avec</h2>
-      <div class="h-1 w-20 bg-primary/20 mx-auto"></div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      {tools.map((tool) => (
-        <div class="text-center group">
-          <div class="w-24 h-24 rounded-full bg-surface-container-high mx-auto flex items-center justify-center group-hover:bg-primary/5 transition-colors duration-500 mb-6">
-            <span class="material-symbols-outlined text-4xl text-primary">{tool.icon}</span>
-          </div>
-          <h3 class="serif-display text-2xl mb-4">{tool.label}</h3>
-          <p class="text-on-surface-variant leading-relaxed">{tool.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-32">
-    <div class="bg-surface-container-low rounded-[3rem] p-12 md:p-20 text-center">
-      <h2 class="serif-display text-5xl mb-6">Investissement</h2>
-      <p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">Un atelier de 2 heures en petit groupe, mêlant théorie et pratique dans un cadre bienveillant.</p>
-      <div class="inline-flex flex-col items-center bg-surface-container-lowest rounded-[2rem] p-12 shadow-sm">
-        <span class="text-xs uppercase tracking-widest text-secondary mb-2 font-[Inter]">Atelier thématique — 2h</span>
-        <span class="serif-display text-7xl text-primary mb-6">55€</span>
-        <span class="text-on-surface-variant text-sm mb-8">Groupe de 6 à 8 personnes</span>
-        <a href="/contact/" class="px-10 py-4 bg-primary text-on-primary rounded-full font-[Inter] tracking-widest uppercase text-xs hover:opacity-90 transition-all">Réserver</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="max-w-3xl mx-auto px-6 md:px-12 mb-32">
-    <h2 class="serif-display text-5xl mb-16 text-center italic">Questions Fréquentes</h2>
-    <FAQAccordion faqs={service.faqs} />
-  </section>
-
-  <!-- CTA -->
-  <section class="mx-6 md:mx-12 mb-24 bg-primary-container text-on-primary-container rounded-[4rem] p-12 md:p-32 overflow-hidden relative text-center">
-    <div class="absolute inset-0 opacity-10 pointer-events-none">
-      <div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-    </div>
-    <div class="relative z-10">
-      <h2 class="serif-display text-5xl md:text-7xl mb-10 italic">Envie de découvrir un thème ?</h2>
-      <p class="text-xl opacity-80 mb-12 max-w-xl mx-auto font-[Newsreader] italic">
-        Choisissez le thème qui vous parle et rejoignez-nous pour un moment de partage et de pratique.
-      </p>
-      <a href="/contact/" class="inline-block px-12 py-6 bg-surface text-primary rounded-full font-[Inter] tracking-widest uppercase text-sm hover:bg-surface-container-lowest transition-colors shadow-2xl">
-        S'inscrire au prochain atelier
-      </a>
-    </div>
-  </section>
-
-  <!-- Related Services -->
-  <section class="max-w-screen-xl mx-auto px-6 md:px-12 mb-20">
-    <h2 class="serif-display text-4xl mb-12 text-center italic">Explorer d'autres soins</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/ateliers-respiration-coherence-cardiaque/">
-        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">air</span>
-        <h3 class="serif-display text-2xl mb-4">Respiration & Cohérence</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Régulez votre système nerveux grâce à la cohérence cardiaque.</p>
-        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
-      </a>
-      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/soins-energetiques/">
-        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">energy_savings_leaf</span>
-        <h3 class="serif-display text-2xl mb-4">Soins Énergétiques</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Libérez vos blocages émotionnels pour retrouver votre vitalité.</p>
-        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
-      </a>
-      <a class="group block p-10 bg-surface-container hover:bg-primary/5 transition-all duration-500 rounded-[2rem]" href="/accompagnement-personnel/">
-        <span class="material-symbols-outlined text-primary mb-6 block text-3xl">verified</span>
-        <h3 class="serif-display text-2xl mb-4">Accompagnement Personnel</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Un parcours sur-mesure pour une transformation profonde.</p>
-        <span class="text-xs font-[Inter] uppercase tracking-[0.2em] text-primary group-hover:translate-x-2 inline-block transition-transform">Découvrir →</span>
-      </a>
-    </div>
-  </section>
+  </div>
 
 </BaseLayout>

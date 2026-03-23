@@ -7,144 +7,144 @@ const schema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Accueil", "item": site.url },
-    { "@type": "ListItem", "position": 2, "name": "Mentions Légales" }
+    { "@type": "ListItem", "position": 2, "name": "Mentions Legales" }
   ]
 };
 ---
 
 <BaseLayout
-  title="Mentions Légales | Au Pour Quoi Pas"
-  description="Mentions légales du site Au Pour Quoi Pas. Informations sur l'éditeur, l'hébergeur et la politique de confidentialité."
+  title="Mentions Legales | Au Pour Quoi Pas"
+  description="Mentions legales du site Au Pour Quoi Pas. Informations sur l'editeur, l'hebergeur et la politique de confidentialite."
   schema={schema}
 >
 
-  <!-- Breadcrumb -->
-  <nav class="pt-32 max-w-screen-xl mx-auto px-6 md:px-12">
-    <ol class="flex gap-4 items-center text-sm font-[Inter] tracking-widest uppercase text-on-surface-variant/60">
-      <li><a class="hover:text-primary transition-colors" href="/">Accueil</a></li>
-      <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
-      <li><span class="text-primary/80">Mentions Légales</span></li>
-    </ol>
-  </nav>
+  <div class="pt-32 lg:pt-40">
 
-  <!-- Header -->
-  <header class="max-w-screen-xl mx-auto px-6 md:px-12 py-16">
-    <h1 class="serif-display text-5xl md:text-7xl text-primary leading-tight">Mentions Légales</h1>
-  </header>
+    <!-- Breadcrumb -->
+    <nav class="max-w-[1200px] mx-auto px-6 lg:px-24 mb-12">
+      <ol class="flex gap-3 items-center text-[10px] font-sans tracking-[0.2em] uppercase text-charcoal/30">
+        <li><a class="hover:text-terracotta transition-colors" href="/">Accueil</a></li>
+        <li>&mdash;</li>
+        <li><span class="text-charcoal/50">Mentions Legales</span></li>
+      </ol>
+    </nav>
 
-  <!-- Content -->
-  <section class="max-w-3xl mx-auto px-6 md:px-12 mb-32">
-    <div class="space-y-16 text-on-surface-variant leading-relaxed">
+    <!-- Header -->
+    <header class="max-w-[1200px] mx-auto px-6 lg:px-24 pb-16">
+      <h1 class="font-editorial text-[clamp(2.5rem,4vw,5rem)] text-charcoal leading-[1.1] font-light">Mentions Legales</h1>
+    </header>
 
-      <!-- Éditeur -->
-      <div>
-        <h2 class="serif-display text-3xl text-on-surface mb-6">1. Éditeur du site</h2>
-        <div class="bg-surface-container-low rounded-[1.5rem] p-8 space-y-3">
-          <p><strong class="text-on-surface">Nom commercial :</strong> {site.name}</p>
-          <p><strong class="text-on-surface">Responsable de la publication :</strong> {site.owner.name}</p>
-          <p><strong class="text-on-surface">Statut :</strong> Micro-entreprise</p>
-          <p><strong class="text-on-surface">SIRET :</strong> {site.siret}</p>
-          <p><strong class="text-on-surface">Adresse :</strong> {site.address.street}, {site.address.postalCode} {site.address.city}, France</p>
-          <p><strong class="text-on-surface">Email :</strong> <a href={`mailto:${site.email}`} class="text-primary hover:underline">{site.email}</a></p>
-        </div>
-      </div>
+    <!-- Content -->
+    <section class="max-w-[1200px] mx-auto px-6 lg:px-24 pb-32 lg:pb-48">
+      <div class="max-w-3xl space-y-16 text-charcoal/60 leading-relaxed font-light">
 
-      <!-- Hébergement -->
-      <div>
-        <h2 class="serif-display text-3xl text-on-surface mb-6">2. Hébergement</h2>
-        <div class="bg-surface-container-low rounded-[1.5rem] p-8 space-y-3">
-          <p><strong class="text-on-surface">Hébergeur :</strong> Cloudflare, Inc.</p>
-          <p><strong class="text-on-surface">Adresse :</strong> 101 Townsend St, San Francisco, CA 94107, États-Unis</p>
-          <p><strong class="text-on-surface">Site web :</strong> <a href="https://www.cloudflare.com" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">www.cloudflare.com</a></p>
-        </div>
-      </div>
-
-      <!-- Propriété intellectuelle -->
-      <div>
-        <h2 class="serif-display text-3xl text-on-surface mb-6">3. Propriété intellectuelle</h2>
-        <p>
-          L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de {site.name}, sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit de {site.name}.
-        </p>
-      </div>
-
-      <!-- RGPD -->
-      <div>
-        <h2 class="serif-display text-3xl text-on-surface mb-6">4. Protection des données personnelles (RGPD)</h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="font-semibold text-on-surface text-lg mb-3">Responsable du traitement</h3>
-            <p>Le responsable du traitement des données personnelles est {site.owner.name}, joignable à l'adresse : <a href={`mailto:${site.email}`} class="text-primary hover:underline">{site.email}</a>.</p>
-          </div>
-
-          <div>
-            <h3 class="font-semibold text-on-surface text-lg mb-3">Données collectées</h3>
-            <p>Les données personnelles collectées via le formulaire de contact sont :</p>
-            <ul class="list-disc pl-6 mt-2 space-y-1">
-              <li>Nom</li>
-              <li>Adresse email</li>
-              <li>Numéro de téléphone (facultatif)</li>
-              <li>Contenu du message</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="font-semibold text-on-surface text-lg mb-3">Finalité du traitement</h3>
-            <p>Ces données sont collectées uniquement dans le but de répondre à vos demandes de renseignements ou de réservation. Elles ne sont jamais transmises à des tiers à des fins commerciales.</p>
-          </div>
-
-          <div>
-            <h3 class="font-semibold text-on-surface text-lg mb-3">Durée de conservation</h3>
-            <p>Les données personnelles sont conservées pendant une durée maximale de 3 ans à compter du dernier contact, conformément aux recommandations de la CNIL.</p>
-          </div>
-
-          <div>
-            <h3 class="font-semibold text-on-surface text-lg mb-3">Vos droits</h3>
-            <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
-            <ul class="list-disc pl-6 mt-2 space-y-1">
-              <li>Droit d'accès à vos données personnelles</li>
-              <li>Droit de rectification de vos données</li>
-              <li>Droit à l'effacement de vos données</li>
-              <li>Droit à la portabilité de vos données</li>
-              <li>Droit d'opposition au traitement de vos données</li>
-            </ul>
-            <p class="mt-4">Pour exercer ces droits, contactez-nous à : <a href={`mailto:${site.email}`} class="text-primary hover:underline">{site.email}</a>.</p>
+        <!-- Editeur -->
+        <div>
+          <h2 class="font-editorial text-2xl text-charcoal mb-6">1. Editeur du site</h2>
+          <div class="bg-warm-gray rounded-lg p-8 space-y-2 text-sm">
+            <p><strong class="text-charcoal font-normal">Nom commercial :</strong> {site.name}</p>
+            <p><strong class="text-charcoal font-normal">Responsable de la publication :</strong> {site.owner.name}</p>
+            <p><strong class="text-charcoal font-normal">Statut :</strong> Micro-entreprise</p>
+            <p><strong class="text-charcoal font-normal">SIRET :</strong> {site.siret}</p>
+            <p><strong class="text-charcoal font-normal">Adresse :</strong> {site.address.street}, {site.address.postalCode} {site.address.city}, France</p>
+            <p><strong class="text-charcoal font-normal">Email :</strong> <a href={`mailto:${site.email}`} class="text-terracotta hover:text-terracotta/70 transition-colors">{site.email}</a></p>
           </div>
         </div>
-      </div>
 
-      <!-- Cookies -->
-      <div>
-        <h2 class="serif-display text-3xl text-on-surface mb-6">5. Cookies</h2>
-        <p>
-          Ce site n'utilise pas de cookies de suivi ou de publicité. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés. Aucun consentement n'est requis pour ces cookies essentiels conformément à la directive ePrivacy.
-        </p>
-      </div>
+        <!-- Hebergement -->
+        <div>
+          <h2 class="font-editorial text-2xl text-charcoal mb-6">2. Hebergement</h2>
+          <div class="bg-warm-gray rounded-lg p-8 space-y-2 text-sm">
+            <p><strong class="text-charcoal font-normal">Hebergeur :</strong> Cloudflare, Inc.</p>
+            <p><strong class="text-charcoal font-normal">Adresse :</strong> 101 Townsend St, San Francisco, CA 94107, Etats-Unis</p>
+            <p><strong class="text-charcoal font-normal">Site web :</strong> <a href="https://www.cloudflare.com" class="text-terracotta hover:text-terracotta/70 transition-colors" target="_blank" rel="noopener noreferrer">www.cloudflare.com</a></p>
+          </div>
+        </div>
 
-      <!-- Limitation de responsabilité -->
-      <div>
-        <h2 class="serif-display text-3xl text-on-surface mb-6">6. Limitation de responsabilité</h2>
-        <p>
-          Les informations contenues sur ce site sont aussi précises que possible et le site est mis à jour régulièrement. Toutefois, il peut contenir des inexactitudes ou des omissions. {site.name} ne saurait être tenu responsable des éventuelles erreurs ou de l'absence de disponibilité des informations.
-        </p>
-        <p class="mt-4">
-          Les prestations proposées ne se substituent en aucun cas à un traitement médical. Il est recommandé de consulter votre médecin pour toute question relative à votre santé.
-        </p>
-      </div>
+        <!-- Propriete intellectuelle -->
+        <div>
+          <h2 class="font-editorial text-2xl text-charcoal mb-6">3. Propriete intellectuelle</h2>
+          <p>
+            L'ensemble du contenu de ce site (textes, images, graphismes, logo, icones, etc.) est la propriete exclusive de {site.name}, sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication, meme partielle, de ces differents elements est strictement interdite sans l'accord expres par ecrit de {site.name}.
+          </p>
+        </div>
 
-      <!-- Crédits -->
-      <div>
-        <h2 class="serif-display text-3xl text-on-surface mb-6">7. Crédits</h2>
-        <p>
-          Site réalisé avec <a href="https://astro.build" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Astro</a>. Hébergé par <a href="https://www.cloudflare.com" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Cloudflare</a>.
-        </p>
-      </div>
+        <!-- RGPD -->
+        <div>
+          <h2 class="font-editorial text-2xl text-charcoal mb-6">4. Protection des donnees personnelles (RGPD)</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-charcoal text-lg mb-3">Responsable du traitement</h3>
+              <p>Le responsable du traitement des donnees personnelles est {site.owner.name}, joignable a l'adresse : <a href={`mailto:${site.email}`} class="text-terracotta hover:text-terracotta/70 transition-colors">{site.email}</a>.</p>
+            </div>
+            <div>
+              <h3 class="text-charcoal text-lg mb-3">Donnees collectees</h3>
+              <p>Les donnees personnelles collectees via le formulaire de contact sont :</p>
+              <ul class="list-none mt-2 space-y-1">
+                <li>&mdash; Nom</li>
+                <li>&mdash; Adresse email</li>
+                <li>&mdash; Numero de telephone (facultatif)</li>
+                <li>&mdash; Contenu du message</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-charcoal text-lg mb-3">Finalite du traitement</h3>
+              <p>Ces donnees sont collectees uniquement dans le but de repondre a vos demandes de renseignements ou de reservation. Elles ne sont jamais transmises a des tiers a des fins commerciales.</p>
+            </div>
+            <div>
+              <h3 class="text-charcoal text-lg mb-3">Duree de conservation</h3>
+              <p>Les donnees personnelles sont conservees pendant une duree maximale de 3 ans a compter du dernier contact, conformement aux recommandations de la CNIL.</p>
+            </div>
+            <div>
+              <h3 class="text-charcoal text-lg mb-3">Vos droits</h3>
+              <p>Conformement au Reglement General sur la Protection des Donnees (RGPD), vous disposez des droits suivants :</p>
+              <ul class="list-none mt-2 space-y-1">
+                <li>&mdash; Droit d'acces a vos donnees personnelles</li>
+                <li>&mdash; Droit de rectification de vos donnees</li>
+                <li>&mdash; Droit a l'effacement de vos donnees</li>
+                <li>&mdash; Droit a la portabilite de vos donnees</li>
+                <li>&mdash; Droit d'opposition au traitement de vos donnees</li>
+              </ul>
+              <p class="mt-4">Pour exercer ces droits, contactez-nous a : <a href={`mailto:${site.email}`} class="text-terracotta hover:text-terracotta/70 transition-colors">{site.email}</a>.</p>
+            </div>
+          </div>
+        </div>
 
-      <!-- Date -->
-      <div class="pt-8 border-t border-outline-variant/20">
-        <p class="text-sm text-on-surface-variant/60">Dernière mise à jour : mars 2026</p>
-      </div>
+        <!-- Cookies -->
+        <div>
+          <h2 class="font-editorial text-2xl text-charcoal mb-6">5. Cookies</h2>
+          <p>
+            Ce site n'utilise pas de cookies de suivi ou de publicite. Seuls des cookies techniques strictement necessaires au fonctionnement du site peuvent etre utilises. Aucun consentement n'est requis pour ces cookies essentiels conformement a la directive ePrivacy.
+          </p>
+        </div>
 
-    </div>
-  </section>
+        <!-- Limitation de responsabilite -->
+        <div>
+          <h2 class="font-editorial text-2xl text-charcoal mb-6">6. Limitation de responsabilite</h2>
+          <p>
+            Les informations contenues sur ce site sont aussi precises que possible et le site est mis a jour regulierement. Toutefois, il peut contenir des inexactitudes ou des omissions. {site.name} ne saurait etre tenu responsable des eventuelles erreurs ou de l'absence de disponibilite des informations.
+          </p>
+          <p class="mt-4">
+            Les prestations proposees ne se substituent en aucun cas a un traitement medical. Il est recommande de consulter votre medecin pour toute question relative a votre sante.
+          </p>
+        </div>
+
+        <!-- Credits -->
+        <div>
+          <h2 class="font-editorial text-2xl text-charcoal mb-6">7. Credits</h2>
+          <p>
+            Site realise avec <a href="https://astro.build" class="text-terracotta hover:text-terracotta/70 transition-colors" target="_blank" rel="noopener noreferrer">Astro</a>. Heberge par <a href="https://www.cloudflare.com" class="text-terracotta hover:text-terracotta/70 transition-colors" target="_blank" rel="noopener noreferrer">Cloudflare</a>.
+          </p>
+        </div>
+
+        <!-- Date -->
+        <div class="pt-8 border-t border-charcoal/5">
+          <p class="text-sm text-charcoal/30">Derniere mise a jour : mars 2026</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
 
 </BaseLayout>
